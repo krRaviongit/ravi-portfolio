@@ -1,0 +1,1384 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kumar Ravi | Full Stack Developer Portfolio</title>
+  <meta name="description" content="Kumar Ravi - Full Stack Developer specializing in React, Node.js, and modern web technologies. View my projects and get in touch for collaboration." />
+  <meta name="keywords" content="Full Stack Developer, React, Node.js, JavaScript, Portfolio, Web Development" />
+  <meta name="author" content="Kumar Ravi" />
+  <meta property="og:title" content="Kumar Ravi | Full Stack Developer Portfolio" />
+  <meta property="og:description" content="Full Stack Developer specializing in React, Node.js, and modern web technologies." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://your-portfolio-url.com" />
+  <link rel="canonical" href="https://your-portfolio-url.com" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Unkempt:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            poppins: ['Poppins', 'sans-serif'],
+          },
+          colors: {
+            primary: '#a21caf', // purple
+            accent: '#f472b6', // pink
+            secondary: '#06b6d4', // teal
+            lime: '#a3e635', // lime
+          },
+        },
+      },
+    }
+  </script>
+  <style>
+    body { font-family: 'Poppins', sans-serif; }
+    html { scroll-behavior: smooth; }
+    h1, h2, h3, h4, h5, h6 { font-family: 'Poppins', sans-serif; }
+    .profile-photo-hover {
+      border: none !important;
+      position: relative;
+      z-index: 1;
+    }
+    .profile-photo-hover:hover {
+      background: none;
+      transition: box-shadow 0.3s, transform 0.3s;
+      transform: scale(1.08);
+      box-shadow: 0 8px 32px 0 rgba(99,102,241,0.25), 0 1.5px 8px 0 rgba(244,114,182,0.15);
+    }
+    .project-card {
+      transition: transform 0.3s, box-shadow 0.3s;
+      position: relative;
+      z-index: 10;
+    }
+    .project-card h3 {
+      color: #22223b;
+    }
+    .dark .project-card h3 {
+      color: #fff;
+    }
+    /* Galaxy orbit animation for skills */
+    .skills-galaxy {
+      position: relative;
+      width: 340px;
+      height: 340px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .skills-planet {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 1;
+      animation: orbit-galaxy 8s linear infinite;
+    }
+    .skills-planet svg {
+      width: 48px;
+      height: 48px;
+      background: #fff;
+      border-radius: 50%;
+      box-shadow: 0 2px 8px 0 #a21caf22;
+      padding: 8px;
+    }
+    .skills-planet span {
+      display: block;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #a21caf;
+      margin-top: 4px;
+      font-weight: 600;
+    }
+    .skills-planet:nth-child(2) { animation-delay: 0s; }
+    .skills-planet:nth-child(3) { animation-delay: 1s; }
+    .skills-planet:nth-child(4) { animation-delay: 2s; }
+    .skills-planet:nth-child(5) { animation-delay: 3s; }
+    .skills-planet:nth-child(6) { animation-delay: 4s; }
+    .skills-planet:nth-child(7) { animation-delay: 5s; }
+    .skills-planet:nth-child(8) { animation-delay: 6s; }
+    .skills-planet:nth-child(9) { animation-delay: 7s; }
+    @keyframes orbit-galaxy {
+      0% { transform: rotate(0deg) translateX(140px) translateY(0) scale(1); }
+      20% { transform: rotate(72deg) translateX(140px) translateY(0) scale(1.08); }
+      40% { transform: rotate(144deg) translateX(140px) translateY(0) scale(1); }
+      60% { transform: rotate(216deg) translateX(140px) translateY(0) scale(0.95); }
+      80% { transform: rotate(288deg) translateX(140px) translateY(0) scale(1.05); }
+      100% { transform: rotate(360deg) translateX(140px) translateY(0) scale(1); }
+    }
+    [data-aos] {
+      opacity: 1 !important;
+      transform: none !important;
+    }
+    .glass {
+      background: rgba(255,255,255,0.25);
+      border: 1px solid rgba(255,255,255,0.18);
+      backdrop-filter: blur(16px) saturate(1.2);
+      -webkit-backdrop-filter: blur(16px) saturate(1.2);
+      box-shadow: 0 8px 32px 0 rgba(99,102,241,0.08), 0 1.5px 8px 0 rgba(244,114,182,0.06);
+    }
+    .dark .glass {
+      background: rgba(30,41,59,0.35);
+      border: 1px solid rgba(99,102,241,0.18);
+    }
+    /* Circular orbit animation for skills */
+    @keyframes orbit {
+      0% { transform: rotate(0deg) translateX(0) translateY(0) scale(1); }
+      20% { transform: rotate(72deg) translateX(20px) translateY(-20px) scale(1.08); }
+      40% { transform: rotate(144deg) translateX(40px) translateY(0) scale(1); }
+      60% { transform: rotate(216deg) translateX(20px) translateY(20px) scale(0.95); }
+      80% { transform: rotate(288deg) translateX(-20px) translateY(0) scale(1.05); }
+      100% { transform: rotate(360deg) translateX(0) translateY(0) scale(1); }
+    }
+    .skill-float {
+      animation: orbit 4.5s linear infinite;
+      will-change: transform;
+      display: flex;
+    }
+    .skill-float:nth-child(2) { animation-delay: 0.3s; }
+    .skill-float:nth-child(3) { animation-delay: 0.6s; }
+    .skill-float:nth-child(4) { animation-delay: 0.9s; }
+    .skill-float:nth-child(5) { animation-delay: 1.2s; }
+    .skill-float:nth-child(6) { animation-delay: 1.5s; }
+    .skill-float:nth-child(7) { animation-delay: 1.8s; }
+    .skill-float:nth-child(8) { animation-delay: 2.1s; }
+    .skill-float:nth-child(9) { animation-delay: 2.4s; }
+    /* Bubble float animation for skills */
+    @keyframes bubble-float {
+      0% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(-24px) scale(1.08); }
+      100% { transform: translateY(0) scale(1); }
+    }
+    .skill-bubble {
+      animation: bubble-float 3.8s ease-in-out infinite;
+      will-change: transform;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: #fff;
+      border-radius: 9999px;
+      box-shadow: 0 4px 24px 0 #a21caf22;
+      padding: 1.2rem 1.2rem 0.7rem 1.2rem;
+      margin: 0.5rem;
+      min-width: 80px;
+      min-height: 80px;
+      transition: box-shadow 0.3s, transform 0.3s;
+    }
+    .skill-bubble svg {
+      width: 40px;
+      height: 40px;
+      margin-bottom: 0.3rem;
+    }
+    .skill-bubble span {
+      font-size: 0.95rem;
+      color: #a21caf;
+      font-weight: 600;
+      text-align: center;
+    }
+    .skill-bubble:nth-child(1) { animation-delay: 0s; }
+    .skill-bubble:nth-child(2) { animation-delay: 0.4s; }
+    .skill-bubble:nth-child(3) { animation-delay: 0.8s; }
+    .skill-bubble:nth-child(4) { animation-delay: 1.2s; }
+    .skill-bubble:nth-child(5) { animation-delay: 1.6s; }
+    .skill-bubble:nth-child(6) { animation-delay: 2.0s; }
+    .skill-bubble:nth-child(7) { animation-delay: 2.4s; }
+    .skill-bubble:nth-child(8) { animation-delay: 2.8s; }
+    .skill-bubble:nth-child(9) { animation-delay: 3.2s; }
+    .skill-bubble:nth-child(10) { animation-delay: 3.6s; }
+    /* Galaxy background and orbit animation for skills */
+    .skills-galaxy-bg {
+      position: absolute;
+      left: 0; top: 0; width: 100%; height: 100%;
+      z-index: 0;
+      pointer-events: none;
+      overflow: visible;
+    }
+    .skills-orbit {
+      position: relative;
+      width: 340px;
+      height: 340px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .skills-orbit-icon {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 2;
+      animation: orbit-advanced 8s linear infinite;
+      background: none;
+      box-shadow: none;
+      border-radius: 50%;
+      padding: 0;
+      min-width: 0;
+      min-height: 0;
+      transition: filter 0.3s;
+    }
+    .skills-orbit-icon svg {
+      width: 44px;
+      height: 44px;
+      background: none;
+      border-radius: 50%;
+      box-shadow: 0 2px 8px 0 #a21caf22;
+      padding: 0;
+      filter: drop-shadow(0 0 8px #f472b6aa);
+      transition: filter 0.3s;
+    }
+    .skills-orbit-icon span {
+      display: block;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #a21caf;
+      margin-top: 2px;
+      font-weight: 600;
+      background: rgba(255,255,255,0.7);
+      border-radius: 8px;
+      padding: 0 4px;
+      box-shadow: 0 1px 4px #fff2;
+    }
+    .skills-orbit-icon:hover svg {
+      filter: drop-shadow(0 0 16px #a21cafcc) brightness(1.2);
+    }
+    .skills-orbit-icon:nth-child(1) { animation-delay: 0s; }
+    .skills-orbit-icon:nth-child(2) { animation-delay: 0.8s; }
+    .skills-orbit-icon:nth-child(3) { animation-delay: 1.6s; }
+    .skills-orbit-icon:nth-child(4) { animation-delay: 2.4s; }
+    .skills-orbit-icon:nth-child(5) { animation-delay: 3.2s; }
+    .skills-orbit-icon:nth-child(6) { animation-delay: 4.0s; }
+    .skills-orbit-icon:nth-child(7) { animation-delay: 4.8s; }
+    .skills-orbit-icon:nth-child(8) { animation-delay: 5.6s; }
+    .skills-orbit-icon:nth-child(9) { animation-delay: 6.4s; }
+    .skills-orbit-icon:nth-child(10) { animation-delay: 7.2s; }
+    @keyframes orbit-advanced {
+      0% { transform: rotate(0deg) translateX(140px) translateY(0) scale(1); }
+      100% { transform: rotate(360deg) translateX(140px) translateY(0) scale(1); }
+    }
+    .skills-galaxy-container {
+      position: relative;
+      width: 340px;
+      height: 340px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    /* Soda bubble grid animation for skills, no overlap, contained */
+    .skills-bubble-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 2.5rem 2.5rem;
+      max-width: 700px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+    .skills-bubble-grid-icon {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: none;
+      border-radius: 50%;
+      box-shadow: 0 2px 16px 0 #a21caf22;
+      padding: 0.5rem 0.5rem 0.2rem 0.5rem;
+      min-width: 100px;
+      min-height: 100px;
+      transition: box-shadow 0.3s, transform 0.3s;
+      z-index: 2;
+      overflow: visible;
+    }
+    .skills-bubble-grid-icon svg {
+      width: 64px;
+      height: 64px;
+      background: none;
+      border-radius: 50%;
+      filter: drop-shadow(0 0 12px #f472b6aa);
+      transition: filter 0.3s;
+    }
+    .skills-bubble-grid-icon span {
+      font-size: 1.1rem;
+      color: #111;
+      font-weight: 600;
+      text-align: center;
+      margin-top: 6px;
+      background: rgba(255,255,255,0.7);
+      border-radius: 8px;
+      padding: 0 8px;
+      box-shadow: 0 1px 4px #fff2;
+    }
+    .skills-bubble-grid-icon:hover svg {
+      filter: drop-shadow(0 0 24px #a21cafcc) brightness(1.2);
+    }
+    .skills-bubble-grid-icon:nth-child(1) { animation: float-grid-1 4.2s ease-in-out infinite; }
+    .skills-bubble-grid-icon:nth-child(2) { animation: float-grid-2 4.5s ease-in-out infinite; }
+    .skills-bubble-grid-icon:nth-child(3) { animation: float-grid-3 4.1s ease-in-out infinite; }
+    .skills-bubble-grid-icon:nth-child(4) { animation: float-grid-4 4.3s ease-in-out infinite; }
+    .skills-bubble-grid-icon:nth-child(5) { animation: float-grid-5 4.6s ease-in-out infinite; }
+    .skills-bubble-grid-icon:nth-child(6) { animation: float-grid-6 4.4s ease-in-out infinite; }
+    .skills-bubble-grid-icon:nth-child(7) { animation: float-grid-7 4.7s ease-in-out infinite; }
+    .skills-bubble-grid-icon:nth-child(8) { animation: float-grid-8 4.5s ease-in-out infinite; }
+    .skills-bubble-grid-icon:nth-child(9) { animation: float-grid-9 4.3s ease-in-out infinite; }
+    .skills-bubble-grid-icon:nth-child(10) { animation: float-grid-10 4.6s ease-in-out infinite; }
+    @keyframes float-grid-1 { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-18px);} }
+    @keyframes float-grid-2 { 0%,100%{transform:translateY(0);} 50%{transform:translateY(18px);} }
+    @keyframes float-grid-3 { 0%,100%{transform:translateX(0);} 50%{transform:translateX(-18px);} }
+    @keyframes float-grid-4 { 0%,100%{transform:translateX(0);} 50%{transform:translateX(18px);} }
+    @keyframes float-grid-5 { 0%,100%{transform:translate(0,0);} 50%{transform:translate(-12px,-12px);} }
+    @keyframes float-grid-6 { 0%,100%{transform:translate(0,0);} 50%{transform:translate(12px,-12px);} }
+    @keyframes float-grid-7 { 0%,100%{transform:translate(0,0);} 50%{transform:translate(-12px,12px);} }
+    @keyframes float-grid-8 { 0%,100%{transform:translate(0,0);} 50%{transform:translate(12px,12px);} }
+    @keyframes float-grid-9 { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-10px);} }
+    @keyframes float-grid-10 { 0%,100%{transform:translateY(0);} 50%{transform:translateY(10px);} }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: none; }
+    }
+    .animate-fadeIn { animation: fadeIn 1.2s cubic-bezier(.4,0,.2,1) 0.2s both; }
+    .project-card:hover {
+      background: none;
+      transform: scale(1.15) translateY(-16px) rotate(-2deg);
+      box-shadow: 0 32px 80px 0 rgba(99,102,241,0.32), 0 8px 32px 0 rgba(244,114,182,0.22);
+      z-index: 20;
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(32px); }
+      to { opacity: 1; transform: none; }
+    }
+    .animate-fadeInUp { animation: fadeInUp 1.2s cubic-bezier(.4,0,.2,1) 0.2s both; }
+    /* Navbar link underline effect on hover: half-width, solid blue, centered, no color change */
+    nav a, #mobile-menu a {
+      position: relative;
+      color: inherit;
+      transition: color 0.2s;
+    }
+    nav a.navbar-brand::after {
+      display: none !important;
+    }
+    nav a:not(.navbar-brand)::after, #mobile-menu a::after {
+      content: '';
+      display: block;
+      margin: 0 auto;
+      width: 50%;
+      height: 0;
+      border-bottom: 2px solid #0369a1;
+      transform: scaleX(0);
+      transition: transform 0.25s cubic-bezier(.4,0,.2,1);
+      transform-origin: center;
+    }
+    nav a:not(.navbar-brand):hover::after, #mobile-menu a:hover::after {
+      transform: scaleX(1);
+    }
+    .skills-bubble-grid-icon img {
+      filter: drop-shadow(0 0 12px #a21caf99);
+      transition: filter 0.3s;
+    }
+    .skills-bubble-grid-icon:hover img {
+      filter: drop-shadow(0 0 24px #a21cafcc) brightness(1.1);
+    }
+    /* Pyramid layout styles */
+    .skills-pyramid {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+      margin: 0 auto;
+      width: 100%;
+      max-width: 700px;
+    }
+    .skills-pyramid-row {
+      display: flex;
+      justify-content: center;
+      gap: 2.5rem;
+    }
+    /* Orbital galaxy layout styles */
+    .skills-orbit-galaxy {
+      position: relative;
+      width: 420px;
+      height: 420px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    /* Increase orbit radius and slow down animation */
+    .skills-orbit-icon {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: rotate(var(--orbit-angle,0deg)) translateX(150px) translateY(-50%) rotate(calc(-1 * var(--orbit-angle,0deg)));
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: none;
+      border-radius: 50%;
+      box-shadow: 0 2px 16px 0 #a21caf22;
+      transition: box-shadow 0.3s, filter 0.3s;
+      filter: drop-shadow(0 0 12px #a21caf99);
+      animation: orbit-galaxy 22s linear infinite;
+    }
+    .skills-orbit-icon:hover img {
+      filter: drop-shadow(0 0 24px #a21cafcc) brightness(1.1);
+    }
+    @keyframes orbit-galaxy {
+      0% { transform: rotate(var(--orbit-angle,0deg)) translateX(150px) translateY(-50%) rotate(calc(-1 * var(--orbit-angle,0deg))); }
+      100% { transform: rotate(calc(360deg + var(--orbit-angle,0deg))) translateX(150px) translateY(-50%) rotate(calc(-360deg - var(--orbit-angle,0deg))); }
+    }
+    /* Straight line layout styles */
+    .skills-line-row {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      gap: 2.5rem;
+      margin: 0 auto;
+      width: 100%;
+      max-width: 900px;
+      flex-wrap: wrap;
+    }
+    /* Add yellow color for 'Ravi' in hero heading */
+    .hero-ravi-yellow { color: #0ea5e9; }
+    .hero-yellow { color: #FFD600; }
+    .navbar-brand {
+      font-family: 'Josefin Sans', sans-serif !important;
+      font-weight: 700 !important;
+      font-size: 2rem !important;
+      letter-spacing: 0.03em;
+      line-height: 1.1;
+    }
+    .dynamic-btn {
+      transition: transform 0.2s cubic-bezier(.4,2,.3,1), box-shadow 0.2s, background 0.2s;
+    }
+    .dynamic-btn:hover,
+    .dynamic-btn:active {
+      transform: translateY(-4px) scale(1.07);
+      box-shadow: 0 8px 32px 0 rgba(14,165,233,0.18), 0 2px 8px 0 rgba(14,165,233,0.15);
+      background: #0ea5e9 !important;
+    }
+    @keyframes shape-float-1 {
+      0% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(-12px) scale(1.1); }
+      100% { transform: translateY(0) scale(1); }
+    }
+    @keyframes shape-float-2 {
+      0% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(10px) scale(0.95); }
+      100% { transform: translateY(0) scale(1); }
+    }
+    @keyframes shape-float-3 {
+      0% { transform: translateX(0) rotate(0deg); }
+      50% { transform: translateX(10px) rotate(10deg); }
+      100% { transform: translateX(0) rotate(0deg); }
+    }
+    .animate-shape-float-1 { animation: shape-float-1 3s ease-in-out infinite; }
+    .animate-shape-float-2 { animation: shape-float-2 4s ease-in-out infinite; }
+    .animate-shape-float-3 { animation: shape-float-3 5s ease-in-out infinite; }
+    @keyframes shape-float-4 {
+      0% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(-16px) scale(1.12); }
+      100% { transform: translateY(0) scale(1); }
+    }
+    @keyframes shape-float-5 {
+      0% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(12px) rotate(12deg); }
+      100% { transform: translateY(0) rotate(0deg); }
+    }
+    @keyframes shape-float-6 {
+      0% { transform: translateX(0) scale(1); }
+      50% { transform: translateX(14px) scale(1.08); }
+      100% { transform: translateX(0) scale(1); }
+    }
+    @keyframes shape-float-7 {
+      0% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(-10px) scale(1.15); }
+      100% { transform: translateY(0) scale(1); }
+    }
+    @keyframes shape-float-8 {
+      0% { transform: translateX(0) rotate(0deg); }
+      50% { transform: translateX(-10px) rotate(-10deg); }
+      100% { transform: translateX(0) rotate(0deg); }
+    }
+    .animate-shape-float-4 { animation: shape-float-4 3.5s ease-in-out infinite; }
+    .animate-shape-float-5 { animation: shape-float-5 4.5s ease-in-out infinite; }
+    .animate-shape-float-6 { animation: shape-float-6 4s ease-in-out infinite; }
+    .animate-shape-float-7 { animation: shape-float-7 3.2s ease-in-out infinite; }
+    .animate-shape-float-8 { animation: shape-float-8 5.2s ease-in-out infinite; }
+    @keyframes hero-float-updown {
+      0%, 100% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(-24px) scale(1.04); }
+    }
+    @keyframes hero-float-updown2 {
+      0%, 100% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(24px) scale(1.03); }
+    }
+    @keyframes hero-float-square {
+      0%, 100% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(-16px) scale(1.06); }
+    }
+    @keyframes hero-float-triangle {
+      0%, 100% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(16px) scale(1.05); }
+    }
+    @keyframes hero-blob-move {
+      0% { transform: translate(-50%, -50%) translateX(-100px) translateY(-50px) scale(1); }
+      25% { transform: translate(-50%, -50%) translateX(80px) translateY(-80px) scale(1.1); }
+      50% { transform: translate(-50%, -50%) translateX(60px) translateY(60px) scale(0.9); }
+      75% { transform: translate(-50%, -50%) translateX(-60px) translateY(40px) scale(1.05); }
+      100% { transform: translate(-50%, -50%) translateX(-100px) translateY(-50px) scale(1); }
+    }
+    @keyframes contact-blob-move {
+      0% { transform: translateX(0) translateY(0) scale(1); }
+      25% { transform: translateX(-40px) translateY(-30px) scale(1.15); }
+      50% { transform: translateX(30px) translateY(-20px) scale(0.9); }
+      75% { transform: translateX(-20px) translateY(25px) scale(1.1); }
+      100% { transform: translateX(0) translateY(0) scale(1); }
+    }
+    @keyframes contact-white-blob {
+      0% { transform: translateX(0) translateY(0) scale(1); }
+      33% { transform: translateX(25px) translateY(-20px) scale(1.1); }
+      66% { transform: translateX(-15px) translateY(15px) scale(0.9); }
+      100% { transform: translateX(0) translateY(0) scale(1); }
+    }
+    @keyframes contact-rotate-1 {
+      0% { transform: rotate(0deg) scale(1); }
+      50% { transform: rotate(180deg) scale(1.1); }
+      100% { transform: rotate(360deg) scale(1); }
+    }
+    @keyframes contact-rotate-2 {
+      0% { transform: rotate(0deg) scale(1); }
+      50% { transform: rotate(-180deg) scale(0.9); }
+      100% { transform: rotate(-360deg) scale(1); }
+    }
+    @keyframes contact-rotate-3 {
+      0% { transform: rotate(0deg) scale(1); }
+      50% { transform: rotate(180deg) scale(1.2); }
+      100% { transform: rotate(360deg) scale(1); }
+    }
+    @keyframes contact-rotate-4 {
+      0% { transform: rotate(0deg) scale(1); }
+      50% { transform: rotate(-180deg) scale(0.8); }
+      100% { transform: rotate(-360deg) scale(1); }
+    }
+    .animate-hero-float-updown { animation: hero-float-updown 12s ease-in-out infinite; }
+    .animate-hero-float-updown2 { animation: hero-float-updown2 14s ease-in-out infinite; }
+    .animate-hero-float-square { animation: hero-float-square 11s ease-in-out infinite; }
+    .animate-hero-float-triangle { animation: hero-float-triangle 13s ease-in-out infinite; }
+    .animate-hero-blob-move { animation: hero-blob-move 18s ease-in-out infinite; }
+    .animate-contact-blob-move { animation: contact-blob-move 15s ease-in-out infinite; }
+    .animate-contact-white-blob { animation: contact-white-blob 12s ease-in-out infinite; }
+    .animate-contact-rotate-1 { animation: contact-rotate-1 8s linear infinite; }
+    .animate-contact-rotate-2 { animation: contact-rotate-2 10s linear infinite; }
+    .animate-contact-rotate-3 { animation: contact-rotate-3 12s linear infinite; }
+    .animate-contact-rotate-4 { animation: contact-rotate-4 9s linear infinite; }
+    @keyframes about-blob-float {
+      0%, 100% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(-18px) scale(1.04); }
+    }
+    .animate-about-blob-float { animation: about-blob-float 10s ease-in-out infinite; }
+    @keyframes footer-blob-float {
+      0%, 100% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(-12px) scale(1.04); }
+    }
+    .animate-footer-blob-float { animation: footer-blob-float 13s ease-in-out infinite; }
+    html {
+      scroll-behavior: smooth;
+    }
+    @media (max-width: 480px) {
+      body {
+        padding: 0 0.5rem;
+      }
+      h1, .text-4xl, .md\:text-6xl {
+        font-size: 2rem !important;
+        line-height: 2.5rem !important;
+      }
+      h2, .text-3xl, .md\:text-4xl {
+        font-size: 1.3rem !important;
+        line-height: 2rem !important;
+      }
+      .project-card {
+        padding: 1rem !important;
+      }
+      .skills-line-row {
+        gap: 1.2rem !important;
+        flex-wrap: wrap;
+      }
+      .skills-bubble-grid-icon img {
+        width: 44px !important;
+        height: 44px !important;
+      }
+      .w-44 { width: 9.5rem !important; }
+      .w-36 { width: 7.5rem !important; }
+      .w-28 { width: 6rem !important; }
+      .w-12 { width: 2.5rem !important; }
+      .w-9 { width: 2rem !important; }
+      .w-8 { width: 1.5rem !important; }
+      .h-12 { height: 2.5rem !important; }
+      .h-9 { height: 2rem !important; }
+      .h-8 { height: 1.5rem !important; }
+      .px-6 { padding-left: 1rem !important; padding-right: 1rem !important; }
+      .py-3 { padding-top: 0.5rem !important; padding-bottom: 0.5rem !important; }
+      .rounded-xl { border-radius: 0.75rem !important; }
+      .rounded { border-radius: 0.5rem !important; }
+      .rounded-full { border-radius: 9999px !important; }
+      .max-w-4xl, .max-w-6xl { max-width: 100vw !important; }
+      .min-h-screen { min-height: 80vh !important; }
+      .gap-8 { gap: 1.2rem !important; }
+      .mb-8 { margin-bottom: 1.2rem !important; }
+      .mb-6 { margin-bottom: 1rem !important; }
+      .mb-4 { margin-bottom: 0.7rem !important; }
+      .mt-10 { margin-top: 1.2rem !important; }
+      .py-20 { padding-top: 2.5rem !important; padding-bottom: 2.5rem !important; }
+      .px-4 { padding-left: 0.5rem !important; padding-right: 0.5rem !important; }
+    }
+    /* Glassmorphic Contact Form */
+    .glassmorphic-form {
+      background: rgba(255,255,255,0.25);
+      border: 1px solid rgba(14,165,233,0.15);
+      box-shadow: 0 8px 32px 0 rgba(14,165,233,0.08), 0 1.5px 8px 0 rgba(14,165,233,0.06);
+      backdrop-filter: blur(20px) saturate(1.1);
+      -webkit-backdrop-filter: blur(20px) saturate(1.1);
+      border-radius: 1.5rem;
+      padding: 2.5rem 2rem;
+    }
+    .dark .glassmorphic-form {
+      background: rgba(15,23,42,0.4);
+      border: 1px solid rgba(14,165,233,0.2);
+      box-shadow: 0 8px 32px 0 rgba(14,165,233,0.12), 0 1.5px 8px 0 rgba(14,165,233,0.08);
+    }
+    .glassmorphic-input {
+      background: transparent !important;
+      border-radius: 0.75rem !important;
+      border: none !important;
+      border-bottom: 2px solid #e2e8f0 !important;
+      color: inherit !important;
+      box-shadow: none !important;
+      outline: none !important;
+      transition: all 0.3s ease;
+      font-size: 1rem;
+    }
+    .glassmorphic-input:focus {
+      border-bottom: 2px solid #0ea5e9 !important;
+      background: rgba(14,165,233,0.02) !important;
+      transform: translateY(-1px);
+    }
+    .dark .glassmorphic-input {
+      border-bottom: 2px solid #475569 !important;
+      color: #f1f5f9 !important;
+    }
+    .dark .glassmorphic-input:focus {
+      border-bottom: 2px solid #0ea5e9 !important;
+      background: rgba(14,165,233,0.05) !important;
+    }
+    .glassmorphic-form input::placeholder,
+    .glassmorphic-form textarea::placeholder {
+      color: #64748b;
+      opacity: 1;
+      font-size: 1rem;
+    }
+    .dark .glassmorphic-form input::placeholder,
+    .dark .glassmorphic-form textarea::placeholder {
+      color: #94a3b8;
+    }
+    .glassmorphic-form button {
+      border-color: #1f2937;
+      color: #1f2937;
+      background: transparent;
+      font-weight: 600;
+      letter-spacing: 0.025em;
+    }
+    .glassmorphic-form button:hover, .glassmorphic-form button:focus {
+      background: #1f2937;
+      color: #ffffff;
+      border-color: #1f2937;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(31,41,55,0.3);
+    }
+    .dark .glassmorphic-form button {
+      border-color: #ffffff;
+      color: #ffffff;
+    }
+    .dark .glassmorphic-form button:hover, .dark .glassmorphic-form button:focus {
+      background: #ffffff;
+      color: #1f2937;
+      border-color: #ffffff;
+      box-shadow: 0 8px 25px rgba(255,255,255,0.3);
+    }
+    nav a:focus, #mobile-menu a:focus {
+      outline: none;
+      box-shadow: none;
+    }
+    .scroll-smooth a:focus, .scroll-smooth a:active {
+      outline: none;
+      box-shadow: none;
+    }
+    .scroll-down:focus, .scroll-down:active {
+      outline: none;
+      box-shadow: none;
+    }
+    
+    /* Scroll down button hover effect */
+    a[href="#about"]:hover {
+      box-shadow: none;
+      transition: all 0.3s ease;
+    }
+    
+    a[href="#about"]:hover span:first-child {
+      background-color: #fff !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    
+    a[href="#about"]:hover svg {
+      color: #0ea5e9 !important;
+    }
+    
+    a[href="#about"]:hover span:last-child {
+      color: #0ea5e9 !important;
+    }
+  </style>
+</head>
+<body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300">
+  <!-- Navbar -->
+  <nav class="fixed top-0 left-0 w-full z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur border-b border-gray-200 dark:border-gray-800 shadow-sm transition-all duration-300">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center relative">
+      <a href="#hero" class="text-2xl font-bold tracking-tight navbar-brand z-10" style="color: #0ea5e9;">Portfolio.</a>
+      <div class="hidden md:flex space-x-8 font-medium absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
+        <a href="#about" class="transition scroll-link">About</a>
+        <a href="#projects" class="transition scroll-link">Projects</a>
+        <a href="#resume" class="transition scroll-link">Resume</a>
+        <a href="#contact" class="transition scroll-link">Contact</a>
+      </div>
+      <div class="flex items-center space-x-4 ml-auto z-10">
+        <button id="theme-toggle" class="p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800 transition">
+          <span id="theme-icon">
+            <!-- Default: Moon icon (for light mode) -->
+            <svg id="icon-moon" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M21 12.79A9 9 0 1111.21 3a7 7 0 109.79 9.79z" />
+            </svg>
+            <!-- Sun icon (for dark mode), hidden by default -->
+            <svg id="icon-sun" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+              <circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="1.5" fill="none"/>
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 1.5v2M12 20.5v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1.5 12h2M20.5 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
+            </svg>
+          </span>
+        </button>
+        <button id="menu-toggle" class="md:hidden p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800 transition">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+    </div>
+    <div id="mobile-menu" class="md:hidden hidden px-4 pb-4">
+      <a href="#about" class="block py-2 hover:text-primary scroll-link">About</a>
+      <a href="#projects" class="block py-2 hover:text-primary scroll-link">Projects</a>
+      <a href="#resume" class="block py-2 hover:text-primary scroll-link">Resume</a>
+      <a href="#contact" class="block py-2 hover:text-primary scroll-link">Contact</a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="hero" class="min-h-screen flex flex-col justify-center items-center text-center bg-gradient-to-br from-primary/20 via-accent/20 to-lime-100 dark:from-secondary/30 dark:via-primary/30 dark:to-gray-900 pt-24 relative overflow-hidden">
+    <!-- Animated Hero Background Shapes -->
+    <svg class="absolute left-1/4 top-1/4 w-[320px] h-[320px] opacity-20 z-0 animate-hero-float-updown" viewBox="0 0 320 320" fill="none" style="filter: blur(12px);">
+      <circle cx="160" cy="160" r="140" fill="#0ea5e9" />
+    </svg>
+    <svg class="absolute right-1/4 top-1/3 w-[220px] h-[220px] opacity-15 z-0 animate-hero-float-updown2" viewBox="0 0 220 220" fill="none" style="filter: blur(10px);">
+      <rect x="30" y="30" width="160" height="160" rx="60" fill="#ec4899" />
+    </svg>
+    <!-- New Faded Moving Blob -->
+    <svg class="absolute left-1/2 top-1/2 w-[200px] h-[200px] opacity-25 z-0 animate-hero-blob-move" viewBox="0 0 200 200" fill="none" style="filter: blur(20px); transform: translate(-50%, -50%);">
+      <circle cx="100" cy="100" r="80" fill="#10b981" />
+    </svg>
+    <h1 class="text-4xl md:text-6xl font-bold mb-4">
+      <span id="typed-hero"></span>
+    </h1>
+    <p class="text-lg md:text-2xl mb-8 font-medium text-gray-700 dark:text-gray-300">Full Stack Developer | Designer | Tech Enthusiast</p>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <a href="#projects" class="px-6 py-3 bg-[#0369a1] text-white rounded shadow transition font-semibold dynamic-btn scroll-link">View Projects</a>
+      <a href="#contact" class="px-6 py-3 bg-[#0369a1] text-white rounded shadow transition font-semibold dynamic-btn scroll-link">Hire Me</a>
+    </div>
+    <!-- Scroll Down Button -->
+    <a href="#about" class="absolute left-1/2 bottom-8 -translate-x-1/2 flex flex-col items-center z-10" style="text-decoration:none;">
+      <span class="w-12 h-12 flex items-center justify-center rounded-full bg-gray-200/60 dark:bg-gray-700/60 mb-1">
+        <svg class="w-7 h-7 text-gray-500 dark:text-gray-300 animate-bounce" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </span>
+      <span class="text-xs text-gray-500 dark:text-gray-300">Scroll Down</span>
+    </a>
+  </section>
+
+  <!-- About Me -->
+  <section id="about" class="max-w-4xl mx-auto py-20 px-4" data-aos="fade-up">
+    <div class="flex flex-col md:flex-row items-center md:items-start gap-8">
+      <div style="position:relative;display:inline-block;">
+        <!-- Greenish faded blob animation to the left of the profile photo -->
+        <svg class="absolute -left-20 top-8 w-[180px] h-[180px] opacity-30 z-0 animate-about-blob-float" viewBox="0 0 180 180" fill="none" style="filter: blur(24px); pointer-events:none;">
+          <ellipse cx="90" cy="90" rx="80" ry="70" fill="#a3e635" />
+        </svg>
+        <canvas id="profile-blob-canvas" style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:290px;height:290px;z-index:0;pointer-events:none;"></canvas>
+        <img src="assets/profilePhoto.jpg" alt="Profile" class="w-64 h-64 rounded-full object-cover object-top shadow-lg mb-6 md:mb-0 profile-photo-hover bg-transparent transition-all duration-300" style="position:relative;z-index:1;" />
+      </div>
+      <div class="flex-1 flex flex-col justify-center">
+        <h2 class="text-3xl font-bold mb-6 flex items-center gap-2">About Me
+          <span class="inline-block animate-bounce">
+            <svg class="w-7 h-7 text-primary" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor"/><path d="M8 12l2 2 4-4" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+        </h2>
+        <p class="mb-4 text-gray-700 dark:text-gray-300 text-justify mt-2">I'm Kumar Ravi, a passionate Full Stack Developer with a knack for building modern web applications and creative digital experiences. I love exploring new technologies and turning ideas into reality through code and design.</p>
+        <!-- <div class="mb-2"><span class="font-semibold">Education:</span> B.Tech in CSE | SRMIST Delhi NCR | CGPA 9.26</div>
+      </div> -->
+        <!-- Resume Content Start -->
+        <div class="mt-10" id="resume">
+          <div class="relative inline-block mb-8 animate-fadeIn" style="z-index:1;">
+            <!-- Animated Shapes -->
+            <svg class="absolute -top-6 -left-8 w-6 h-6 animate-shape-float-1 opacity-80" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#0ea5e9"/></svg>
+            <svg class="absolute -bottom-6 -right-8 w-5 h-5 animate-shape-float-2 opacity-80" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="4" fill="#ec4899"/></svg>
+            <svg class="absolute -top-8 left-1/2 w-4 h-4 animate-shape-float-3 opacity-80" viewBox="0 0 24 24"><polygon points="12,4 20,20 4,20" fill="#a3e635"/></svg>
+            <svg class="absolute -bottom-10 left-10 w-4 h-4 animate-shape-float-4 opacity-70" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8" fill="#f472b6"/></svg>
+            <svg class="absolute -top-10 right-12 w-6 h-6 animate-shape-float-5 opacity-70" viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" rx="3" fill="#06b6d4"/></svg>
+            <svg class="absolute top-1/2 left-0 w-5 h-5 animate-shape-float-6 opacity-60" viewBox="0 0 24 24"><polygon points="12,2 22,22 2,22" fill="#fbbf24"/></svg>
+            <svg class="absolute bottom-0 right-1/2 w-3 h-3 animate-shape-float-7 opacity-60" viewBox="0 0 24 24"><circle cx="12" cy="12" r="6" fill="#6366f1"/></svg>
+            <svg class="absolute top-0 right-1/3 w-4 h-4 animate-shape-float-8 opacity-60" viewBox="0 0 24 24"><rect x="7" y="7" width="10" height="10" rx="2" fill="#10b981"/></svg>
+            <a id="download-resume" href="RESUME4.pdf" target="_blank" rel="noopener" class="inline-block px-6 py-3 bg-[#0369a1] text-white rounded shadow transition font-semibold dynamic-btn scroll-mt-32 relative z-10">Download Resume</a>
+          </div>
+        </div>
+        <!-- Resume Content End -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="max-w-4xl mx-auto py-20 px-4 relative" data-aos="fade-up">
+    <h2 class="text-3xl font-bold mb-8 flex items-center gap-2">Skills
+      <span class="inline-block animate-bounce">
+        <svg class="w-7 h-7 text-primary" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2v20M2 12h20" stroke="currentColor" stroke-linecap="round"/></svg>
+      </span>
+    </h2>
+    <!-- Add Three.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/three@0.152.2/build/three.min.js"></script>
+    <!-- Add Three.js canvas background to skills section -->
+    <div style="position:relative;">
+      <canvas id="skills-bg-canvas" style="position:absolute;left:0;top:0;width:100%;height:100%;z-index:0;pointer-events:none;"></canvas>
+      <div class="skills-line-bg-container" style="position:relative;display:flex;justify-content:center;align-items:center;z-index:1;">
+        <svg class="skills-line-bg" width="900" height="180" style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:0;pointer-events:none;">
+          <!-- Very dense, small, animated stars for a professional galaxy effect -->
+          <g>
+            <circle cx="60" cy="30" r="0.7" fill="#fff" opacity="0.7"><animate attributeName="opacity" values="0.7;0.1;0.7" dur="2.1s" repeatCount="indefinite"/></circle>
+            <circle cx="120" cy="50" r="0.8" fill="#fff" opacity="0.8"><animate attributeName="opacity" values="0.8;0.2;0.8" dur="2.2s" repeatCount="indefinite"/></circle>
+            <circle cx="180" cy="40" r="0.6" fill="#fff" opacity="0.6"><animate attributeName="opacity" values="0.6;0.1;0.6" dur="2.3s" repeatCount="indefinite"/></circle>
+            <circle cx="240" cy="60" r="0.7" fill="#fff" opacity="0.7"><animate attributeName="opacity" values="0.7;0.2;0.7" dur="2.4s" repeatCount="indefinite"/></circle>
+            <circle cx="300" cy="30" r="0.8" fill="#fff" opacity="0.8"><animate attributeName="opacity" values="0.8;0.1;0.8" dur="2.5s" repeatCount="indefinite"/></circle>
+            <circle cx="360" cy="50" r="0.7" fill="#fff" opacity="0.7"><animate attributeName="opacity" values="0.7;0.2;0.7" dur="2.6s" repeatCount="indefinite"/></circle>
+            <circle cx="420" cy="40" r="0.6" fill="#fff" opacity="0.6"><animate attributeName="opacity" values="0.6;0.1;0.6" dur="2.7s" repeatCount="indefinite"/></circle>
+            <circle cx="480" cy="60" r="0.7" fill="#fff" opacity="0.7"><animate attributeName="opacity" values="0.7;0.2;0.7" dur="2.8s" repeatCount="indefinite"/></circle>
+            <circle cx="540" cy="30" r="0.8" fill="#fff" opacity="0.8"><animate attributeName="opacity" values="0.8;0.1;0.8" dur="2.9s" repeatCount="indefinite"/></circle>
+            <circle cx="600" cy="50" r="0.7" fill="#fff" opacity="0.7"><animate attributeName="opacity" values="0.7;0.2;0.7" dur="3.0s" repeatCount="indefinite"/></circle>
+            <circle cx="660" cy="40" r="0.6" fill="#fff" opacity="0.6"><animate attributeName="opacity" values="0.6;0.1;0.6" dur="3.1s" repeatCount="indefinite"/></circle>
+            <circle cx="720" cy="60" r="0.7" fill="#fff" opacity="0.7"><animate attributeName="opacity" values="0.7;0.2;0.7" dur="3.2s" repeatCount="indefinite"/></circle>
+            <circle cx="780" cy="30" r="0.8" fill="#fff" opacity="0.8"><animate attributeName="opacity" values="0.8;0.1;0.8" dur="3.3s" repeatCount="indefinite"/></circle>
+            <circle cx="840" cy="50" r="0.7" fill="#fff" opacity="0.7"><animate attributeName="opacity" values="0.7;0.2;0.7" dur="3.4s" repeatCount="indefinite"/></circle>
+            <circle cx="900" cy="40" r="0.6" fill="#fff" opacity="0.6"><animate attributeName="opacity" values="0.6;0.1;0.6" dur="3.5s" repeatCount="indefinite"/></circle>
+            <!-- Middle band -->
+            <circle cx="90" cy="90" r="0.7" fill="#fff" opacity="0.7"><animate attributeName="opacity" values="0.7;0.1;0.7" dur="2.1s" repeatCount="indefinite"/></circle>
+            <circle cx="180" cy="120" r="0.8" fill="#fff" opacity="0.8"><animate attributeName="opacity" values="0.8;0.2;0.8" dur="2.2s" repeatCount="indefinite"/></circle>
+            <circle cx="270" cy="90" r="0.6" fill="#fff" opacity="0.6"><animate attributeName="opacity" values="0.6;0.1;0.6" dur="2.3s" repeatCount="indefinite"/></circle>
+            <circle cx="360" cy="120" r="0.7" fill="#fff" opacity="0.7"><animate attributeName="opacity" values="0.7;0.2;0.7" dur="2.4s" repeatCount="indefinite"/></circle>
+            <circle cx="450" cy="90" r="0.8" fill="#fff" opacity="0.8"><animate attributeName="opacity" values="0.8;0.1;0.8" dur="2.5s" repeatCount="indefinite"/></circle>
+            <circle cx="540" cy="120" r="0.7" fill="#fff" opacity="0.7"><animate attributeName="opacity" values="0.7;0.2;0.7" dur="2.6s" repeatCount="indefinite"/></circle>
+            <circle cx="630" cy="90" r="0.6" fill="#fff" opacity="0.6"><animate attributeName="opacity" values="0.6;0.1;0.6" dur="2.7s" repeatCount="indefinite"/></circle>
+            <circle cx="720" cy="120" r="0.7" fill="#fff" opacity="0.7"><animate attributeName="opacity" values="0.7;0.2;0.7" dur="2.8s" repeatCount="indefinite"/></circle>
+            <circle cx="810" cy="90" r="0.8" fill="#fff" opacity="0.8"><animate attributeName="opacity" values="0.8;0.1;0.8" dur="2.9s" repeatCount="indefinite"/></circle>
+            <!-- Lower band -->
+            <circle cx="60" cy="150" r="0.7" fill="#fff" opacity="0.7"><animate attributeName="opacity" values="0.7;0.1;0.7" dur="2.1s" repeatCount="indefinite"/></circle>
+            <circle cx="120" cy="170" r="0.8" fill="#fff" opacity="0.8"><animate attributeName="opacity" values="0.8;0.2;0.8" dur="2.2s" repeatCount="indefinite"/></circle>
+            <circle cx="180" cy="160" r="0.6" fill="#fff" opacity="0.6"><animate attributeName="opacity" values="0.6;0.1;0.6" dur="2.3s" repeatCount="indefinite"/></circle>
+            <circle cx="240" cy="180" r="0.7" fill="#fff" opacity="0.7"><animate attributeName="opacity" values="0.7;0.2;0.7" dur="2.4s" repeatCount="indefinite"/></circle>
+            <circle cx="300" cy="150" r="0.8" fill="#fff" opacity="0.8"><animate attributeName="opacity" values="0.8;0.1;0.8" dur="2.5s" repeatCount="indefinite"/></circle>
+            <circle cx="360" cy="170" r="0.7" fill="#fff" opacity="0.7"><animate attributeName="opacity" values="0.7;0.2;0.7" dur="2.6s" repeatCount="indefinite"/></circle>
+            <circle cx="420" cy="160" r="0.6" fill="#fff" opacity="0.6"><animate attributeName="opacity" values="0.6;0.1;0.6" dur="2.7s" repeatCount="indefinite"/></circle>
+            <circle cx="480" cy="180" r="0.7" fill="#fff" opacity="0.7"><animate attributeName="opacity" values="0.7;0.2;0.7" dur="2.8s" repeatCount="indefinite"/></circle>
+            <circle cx="540" cy="150" r="0.8" fill="#fff" opacity="0.8"><animate attributeName="opacity" values="0.8;0.1;0.8" dur="2.9s" repeatCount="indefinite"/></circle>
+            <circle cx="600" cy="170" r="0.7" fill="#fff" opacity="0.7"><animate attributeName="opacity" values="0.7;0.2;0.7" dur="3.0s" repeatCount="indefinite"/></circle>
+            <circle cx="660" cy="160" r="0.6" fill="#fff" opacity="0.6"><animate attributeName="opacity" values="0.6;0.1;0.6" dur="3.1s" repeatCount="indefinite"/></circle>
+            <circle cx="720" cy="180" r="0.7" fill="#fff" opacity="0.7"><animate attributeName="opacity" values="0.7;0.2;0.7" dur="3.2s" repeatCount="indefinite"/></circle>
+            <circle cx="780" cy="150" r="0.8" fill="#fff" opacity="0.8"><animate attributeName="opacity" values="0.8;0.1;0.8" dur="3.3s" repeatCount="indefinite"/></circle>
+            <circle cx="840" cy="170" r="0.7" fill="#fff" opacity="0.7"><animate attributeName="opacity" values="0.7;0.2;0.7" dur="3.4s" repeatCount="indefinite"/></circle>
+            <circle cx="900" cy="160" r="0.6" fill="#fff" opacity="0.6"><animate attributeName="opacity" values="0.6;0.1;0.6" dur="3.5s" repeatCount="indefinite"/></circle>
+          </g>
+        </svg>
+        <div class="skills-line-row" style="position:relative;z-index:1;">
+          <span class="skills-bubble-grid-icon"><img src="assets/java-svgrepo-com.svg" alt="Java" width="64" height="64" style="display:block;" /><span>Java</span></span>
+          <span class="skills-bubble-grid-icon"><img src="assets/python-svgrepo-com.svg" alt="Python" width="64" height="64" style="display:block;" /><span>Python</span></span>
+          <span class="skills-bubble-grid-icon"><img src="assets/html-svgrepo-com.svg" alt="HTML" width="64" height="64" style="display:block;" /><span>HTML</span></span>
+          <span class="skills-bubble-grid-icon"><img src="assets/css-3-svgrepo-com.svg" alt="CSS" width="64" height="64" style="display:block;" /><span>CSS</span></span>
+          <span class="skills-bubble-grid-icon"><img src="assets/js-svgrepo-com.svg" alt="JavaScript" width="64" height="64" style="display:block;" /><span>JavaScript</span></span>
+          <span class="skills-bubble-grid-icon"><img src="assets/react-svgrepo-com.svg" alt="React" width="64" height="64" style="display:block;" /><span>React</span></span>
+          <span class="skills-bubble-grid-icon"><img src="assets/node-js-svgrepo-com.svg" alt="Node.js" width="64" height="64" style="display:block;" /><span>Node.js</span></span>
+          <span class="skills-bubble-grid-icon"><img src="assets/mongodb-svgrepo-com.svg" alt="MongoDB" width="64" height="64" style="display:block;" /><span>MongoDB</span></span>
+          <span class="skills-bubble-grid-icon"><img src="assets/tailwind-svgrepo-com.svg" alt="Tailwind" width="64" height="64" style="display:block;" /><span>Tailwind</span></span>
+          <span class="skills-bubble-grid-icon"><img src="assets/firebase-svgrepo-com.svg" alt="Firebase" width="64" height="64" style="display:block;" /><span>Firebase</span></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="bg-gradient-to-br from-accent/10 via-lime-100 to-white dark:from-secondary/20 dark:via-primary/20 dark:to-gray-900 py-20 px-4" data-aos="fade-up">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-3xl font-bold mb-10 text-center flex items-center justify-center gap-2">Featured Projects
+        <span class="inline-block animate-bounce">
+          <svg class="w-7 h-7 text-primary" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="4" stroke="currentColor"/><path d="M9 9h6v6H9z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+      </h2>
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Project 1 -->
+        <div class="project-card glass bg-white/60 dark:bg-gray-900/60 rounded-xl shadow-lg transition-transform duration-300 p-6 flex flex-col" data-aos="fade-up" data-aos-delay="100">
+                      <img src="assets/fit.jpeg" alt="Body-Craft" class="rounded-lg mb-4 object-cover h-40 w-full" />
+          <h3 class="text-xl font-semibold mb-2">Body-Craft</h3>
+          <p class="mb-3 text-gray-700 dark:text-gray-300">AI-Powered AR Fitness Tracker</p>
+          <div class="mb-4 text-sm text-gray-500">React, Firebase, Mediapipe</div>
+          <div class="mt-auto flex justify-center">
+            <a href="https://body-craft.vercel.app/" target="_blank" class="w-44 px-4 py-2 bg-[#0369a1] text-white rounded transition text-center dynamic-btn whitespace-nowrap">Live Demo</a>
+          </div>
+        </div>
+        <!-- Project 2 -->
+        <div class="project-card glass bg-white/60 dark:bg-gray-900/60 rounded-xl shadow-lg transition-transform duration-300 p-6 flex flex-col" data-aos="fade-up" data-aos-delay="200">
+                      <img src="assets/movie.jpg" alt="Movie Recommender" class="rounded-lg mb-4 object-cover h-40 w-full" />
+          <h3 class="text-xl font-semibold mb-2">Movie Recommender System</h3>
+          <p class="mb-3 text-gray-700 dark:text-gray-300">Content-based AI Movie Recommender</p>
+          <div class="mb-4 text-sm text-gray-500">Python, Streamlit, Pandas</div>
+          <div class="mt-auto flex justify-center">
+            <a href="https://ai-movie-recommender-4yht2jlpy9d44m5gtk9fnp.streamlit.app/" target="_blank" class="w-44 px-4 py-2 bg-[#0369a1] text-white rounded transition text-center dynamic-btn whitespace-nowrap">Live Demo</a>
+          </div>
+        </div>
+        <!-- Project 3 -->
+        <div class="project-card glass bg-white/60 dark:bg-gray-900/60 rounded-xl shadow-lg transition-transform duration-300 p-6 flex flex-col" data-aos="fade-up" data-aos-delay="300">
+                      <img src="assets/ball.webp" alt="Cricket Chaos" class="rounded-lg mb-4 object-cover h-40 w-full" />
+          <h3 class="text-xl font-semibold mb-2">Cricket Chaos</h3>
+          <p class="mb-3 text-gray-700 dark:text-gray-300">Interactive Bat-Ball-Stumps Game</p>
+          <div class="mb-4 text-sm text-gray-500">HTML, CSS, JavaScript</div>
+          <div class="mt-auto flex justify-center">
+            <a href="https://cricket-fever-game.vercel.app/" target="_blank" class="w-44 px-4 py-2 bg-[#0369a1] text-white rounded transition text-center dynamic-btn whitespace-nowrap">Live Demo</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="bg-gradient-to-br from-gray-50 via-gray-100 to-gray-200 dark:from-gray-800 dark:via-gray-900 dark:to-gray-950 py-20 px-4 relative overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+    <!-- Contact Form Blob Animation -->
+    <!-- Removed blue and white blobs from contact section -->
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-3xl font-bold mb-4 text-center flex items-center justify-center gap-2 relative">
+        <!-- Rotating Shapes around Contact Me heading -->
+        <svg class="absolute -top-8 -left-8 w-6 h-6 animate-contact-rotate-1 opacity-60" viewBox="0 0 24 24" fill="none">
+          <rect x="4" y="4" width="16" height="16" rx="2" fill="#0ea5e9"/>
+        </svg>
+        <svg class="absolute -top-6 -right-6 w-5 h-5 animate-contact-rotate-2 opacity-60" viewBox="0 0 24 24" fill="none">
+          <circle cx="12" cy="12" r="8" fill="#f472b6"/>
+        </svg>
+        <svg class="absolute -bottom-6 -left-6 w-4 h-4 animate-contact-rotate-3 opacity-60" viewBox="0 0 24 24" fill="none">
+          <polygon points="12,2 22,22 2,22" fill="#10b981"/>
+        </svg>
+        <svg class="absolute -bottom-8 -right-8 w-5 h-5 animate-contact-rotate-4 opacity-60" viewBox="0 0 24 24" fill="none">
+          <rect x="6" y="6" width="12" height="12" rx="3" fill="#fbbf24"/>
+        </svg>
+        Contact Me
+        <span class="inline-block animate-bounce">
+          <svg class="w-8 h-8 text-[#0369a1]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <rect x="2" y="6" width="20" height="14" rx="3" stroke="#0369a1"/>
+            <path d="M22 6l-10 7L2 6" stroke="#0369a1" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+      </h2>
+      <p class="mb-8 text-center text-gray-700 dark:text-gray-300 flex flex-col items-center gap-2 animate-fadeIn">
+        <span class="inline-flex items-center gap-2 text-lg font-medium">
+          <svg class="w-6 h-6 text-[#0369a1]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16v16H4z" stroke="#0369a1" stroke-linecap="round" stroke-linejoin="round"/><path d="M22 6l-10 7L2 6" stroke="#0369a1" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span>Feel free to reach out via the form or</span>
+          <a href="mailto:dropanemail2ravi@gmail.com" class="font-bold text-[#0369a1] bg-gradient-to-r from-[#0369a1] to-[#0ea5e9] bg-clip-text text-transparent transition-all duration-300">dropanemail2ravi@gmail.com</a>
+        </span>
+        <span class="text-sm text-gray-500 mt-1">I usually respond within 24 hours!</span>
+      </p>
+      <form action="https://formspree.io/f/mnnzdvwb" method="POST" class="max-w-xl mx-auto glassmorphic-form rounded-2xl p-8 flex flex-col gap-6" id="contact-form">
+        <input type="text" name="name" placeholder="Name" required class="glassmorphic-input px-2 py-3 rounded-md border-0 border-b-2 border-gray-200 dark:border-gray-700 bg-transparent focus:border-primary focus:ring-0 transition-all duration-200" />
+        <input type="email" name="email" placeholder="Email" required class="glassmorphic-input px-2 py-3 rounded-md border-0 border-b-2 border-gray-200 dark:border-gray-700 bg-transparent focus:border-primary focus:ring-0 transition-all duration-200" />
+        <textarea name="message" placeholder="Message" required rows="4" class="glassmorphic-input px-2 py-3 rounded-md border-0 border-b-2 border-gray-200 dark:border-gray-700 bg-transparent focus:border-primary focus:ring-0 transition-all duration-200"></textarea>
+        <button type="submit" class="w-full flex items-center justify-center gap-2 px-6 py-3 rounded-xl border-2 border-primary text-primary bg-transparent font-semibold transition-all duration-200 hover:bg-primary hover:text-white focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2">
+          Send Message
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 2L11 13" stroke-linecap="round" stroke-linejoin="round"/><path d="M22 2L15 22L11 13L2 9L22 2Z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </form>
+      <div id="form-success" class="hidden flex items-center justify-center mt-4">
+        <div class="flex items-center gap-2 px-4 py-3 rounded-lg shadow bg-green-50 dark:bg-green-900 text-green-700 dark:text-green-200 font-medium text-base mx-auto animate-fadeIn" style="max-width: 350px;">
+          <svg class="w-5 h-5 text-green-500 dark:text-green-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none"/><path d="M8 12l2 2l4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span>Thank you! Your message has been sent.</span>
+        </div>
+      </div>
+      <script>
+        // Enhanced form validation and submission
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+          e.preventDefault();
+          var form = this;
+          var submitBtn = form.querySelector('button[type="submit"]');
+          var originalText = submitBtn.innerHTML;
+          
+          // Show loading state
+          submitBtn.innerHTML = `
+            <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+              <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+              <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+            </svg>
+            Sending...
+          `;
+          submitBtn.disabled = true;
+          
+          // Show success message with enhanced animation
+          const successDiv = document.getElementById('form-success');
+          successDiv.classList.remove('hidden');
+          successDiv.classList.add('animate-fadeIn');
+          
+          fetch(form.action, {
+            method: 'POST',
+            body: new FormData(form),
+            headers: { 'Accept': 'application/json' }
+          }).then(response => {
+            if (response.ok) {
+              form.reset();
+              // Add success animation to form
+              form.classList.add('animate-pulse');
+              setTimeout(() => form.classList.remove('animate-pulse'), 1000);
+            }
+          }).finally(() => {
+            // Reset button after 2 seconds
+            setTimeout(() => {
+              submitBtn.innerHTML = originalText;
+              submitBtn.disabled = false;
+              successDiv.classList.add('hidden');
+            }, 2000);
+          });
+        });
+      </script>
+      <div class="flex justify-center gap-6 mt-8">
+        <a href="https://github.com/krRaviongit" target="_blank" class="text-2xl hover:text-gray-500 transition"><svg fill="currentColor" viewBox="0 0 24 24" class="w-6 h-6"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.387.6.113.82-.263.82-.582 0-.288-.012-1.243-.018-2.252-3.338.726-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.09-.745.083-.729.083-.729 1.205.085 1.84 1.237 1.84 1.237 1.07 1.834 2.807 1.304 3.492.997.108-.775.418-1.305.762-1.606-2.665-.304-5.466-1.332-5.466-5.93 0-1.31.468-2.38 1.236-3.22-.124-.303-.535-1.523.117-3.176 0 0 1.008-.322 3.3 1.23a11.5 11.5 0 013.003-.404c1.02.005 2.047.138 3.003.404 2.29-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.873.12 3.176.77.84 1.235 1.91 1.235 3.22 0 4.61-2.803 5.624-5.475 5.92.43.37.823 1.102.823 2.222 0 1.606-.015 2.898-.015 3.293 0 .322.216.699.825.58C20.565 21.796 24 17.297 24 12c0-6.63-5.37-12-12-12z"/></svg></a>
+        <a href="https://www.linkedin.com/in/kumarravi69/" target="_blank" class="text-2xl hover:text-gray-500 transition"><svg fill="currentColor" viewBox="0 0 24 24" class="w-6 h-6"><path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.28c-.97 0-1.75-.79-1.75-1.75s.78-1.75 1.75-1.75 1.75.79 1.75 1.75-.78 1.75-1.75 1.75zm13.5 11.28h-3v-5.6c0-1.34-.03-3.07-1.87-3.07-1.87 0-2.16 1.46-2.16 2.97v5.7h-3v-10h2.89v1.36h.04c.4-.75 1.38-1.54 2.84-1.54 3.04 0 3.6 2 3.6 4.59v5.59z"/></svg></a>
+      </div>
+    </div>
+  </section>
+
+
+
+  <footer class="relative text-center py-7 text-gray-500 dark:text-gray-400 text-sm bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800 overflow-hidden">
+    <!-- Animated blue blob bottom right -->
+    <svg class="absolute right-0 bottom-0 w-[220px] h-[120px] opacity-25 z-0 animate-footer-blob-float" viewBox="0 0 220 120" fill="none" style="filter: blur(28px); pointer-events:none;">
+      <ellipse cx="180" cy="80" rx="80" ry="40" fill="#0ea5e9" />
+    </svg>
+    <div class="relative z-10 flex flex-col items-center">
+      <div class="text-sm font-bold text-gray-700 dark:text-gray-100 mb-2">Designed with <span style="color:#0ea5e9;">💙</span> by Kumar Ravi</div>
+      <div class="text-sm text-gray-500 dark:text-gray-400">© 2025 Kumar Ravi. All rights reserved.</div>
+    </div>
+  </footer>
+  <style>
+    @keyframes footer-blob-float {
+      0%, 100% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(-12px) scale(1.04); }
+    }
+    .animate-footer-blob-float { animation: footer-blob-float 13s ease-in-out infinite; }
+    
+    /* Professional Enhancements */
+    .animate-fadeIn {
+      animation: fadeIn 0.6s ease-out;
+    }
+    
+    /* Smooth scroll behavior */
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 80px;
+    }
+    
+    /* Enhanced focus states for accessibility */
+    button:focus, input:focus, textarea:focus, a:focus {
+      outline: 2px solid #0ea5e9;
+      outline-offset: 2px;
+    }
+    
+    /* Professional hover effects with purple shine */
+    .project-card {
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .project-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(168, 85, 247, 0.1), transparent);
+      transition: left 0.6s ease;
+      z-index: 1;
+      pointer-events: none;
+    }
+    
+    .project-card:hover::before {
+      left: 100%;
+    }
+    
+    .project-card:hover {
+      transform: translateY(-12px) scale(1.03);
+      box-shadow: 
+        0 25px 50px rgba(168, 85, 247, 0.15),
+        0 10px 30px rgba(139, 92, 246, 0.1),
+        0 0 0 1px rgba(168, 85, 247, 0.1);
+      background: linear-gradient(135deg, 
+        rgba(255, 255, 255, 0.9) 0%, 
+        rgba(255, 255, 255, 0.95) 50%, 
+        rgba(255, 255, 255, 0.9) 100%);
+    }
+    
+    .dark .project-card:hover {
+      background: linear-gradient(135deg, 
+        rgba(30, 41, 59, 0.9) 0%, 
+        rgba(30, 41, 59, 0.95) 50%, 
+        rgba(30, 41, 59, 0.9) 100%);
+      box-shadow: 
+        0 25px 50px rgba(168, 85, 247, 0.2),
+        0 10px 30px rgba(139, 92, 246, 0.15),
+        0 0 0 1px rgba(168, 85, 247, 0.15);
+    }
+    
+    /* Loading animation for form */
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+    
+    .animate-spin {
+      animation: spin 1s linear infinite;
+    }
+  </style>
+
+  <script>
+    // Theme toggle
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeIcon = document.getElementById('theme-icon');
+    const iconMoon = document.getElementById('icon-moon');
+    const iconSun = document.getElementById('icon-sun');
+    const html = document.documentElement;
+    function setTheme(dark) {
+      if (dark) {
+        html.classList.add('dark');
+        iconMoon.classList.add('hidden');
+        iconSun.classList.remove('hidden');
+        localStorage.setItem('theme', 'dark');
+      } else {
+        html.classList.remove('dark');
+        iconMoon.classList.remove('hidden');
+        iconSun.classList.add('hidden');
+        localStorage.setItem('theme', 'light');
+      }
+    }
+    themeToggle.addEventListener('click', () => {
+      setTheme(!html.classList.contains('dark'));
+    });
+    // On load
+    (function() {
+      const userTheme = localStorage.getItem('theme');
+      if (userTheme === 'dark' || (!userTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        setTheme(true);
+      } else {
+        setTheme(false);
+      }
+    })();
+    // Mobile menu
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    menuToggle.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+    // Smooth scroll for nav links
+    document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.scroll-link').forEach(link => {
+    link.addEventListener('click', function(e) {
+      const href = this.getAttribute('href');
+      if (href && href.startsWith('#')) {
+        e.preventDefault();
+        const target = document.querySelector(href);
+        if (target) {
+          const navbar = document.querySelector('nav');
+          const navHeight = navbar ? navbar.offsetHeight : 0;
+          const targetPosition = target.offsetTop - navHeight; // Perfect alignment with navbar
+          window.scrollTo({ 
+            top: targetPosition, 
+            behavior: 'smooth' 
+          });
+          var mobileMenu = document.getElementById('mobile-menu');
+          if (mobileMenu) mobileMenu.classList.add('hidden');
+        }
+      }
+    });
+  });
+});
+
+    // Typed.js for Hero Section
+    new Typed('#typed-hero', {
+      strings: ["Hi, I'm Kumar <span class='hero-ravi-yellow'>Ravi</span>"],
+      typeSpeed: 40,
+      backSpeed: 20,
+      smartBackspace: true,
+      startDelay: 300,
+      showCursor: false,
+      loop: false
+    });
+
+    AOS.init({
+      once: true,
+      duration: 800,
+      offset: 80
+    });
+
+
+  </script>
+  <!-- Three.js bouncing blob/ball animation for skills background -->
+  <script>
+  window.addEventListener('DOMContentLoaded', () => {
+    const canvas = document.getElementById('skills-bg-canvas');
+    if (!canvas) return;
+    const width = canvas.parentElement.offsetWidth;
+    const height = 220;
+    canvas.width = width;
+    canvas.height = height;
+    // Three.js setup
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
+    camera.position.z = 200;
+    const renderer = new THREE.WebGLRenderer({ canvas, alpha: true });
+    renderer.setSize(width, height);
+    // Glowing gradient ball (pink-purple)
+    const canvasSize = 256;
+    const gradCanvas = document.createElement('canvas');
+    gradCanvas.width = gradCanvas.height = canvasSize;
+    const ctx = gradCanvas.getContext('2d');
+    const grad = ctx.createRadialGradient(canvasSize/2, canvasSize/2, 10, canvasSize/2, canvasSize/2, canvasSize/2);
+    grad.addColorStop(0, '#f472b6'); // pink
+    grad.addColorStop(0.5, '#a21caf'); // purple
+    grad.addColorStop(1, '#22223b'); // dark
+    ctx.fillStyle = grad;
+    ctx.fillRect(0, 0, canvasSize, canvasSize);
+    const texture = new THREE.CanvasTexture(gradCanvas);
+    const material = new THREE.MeshPhysicalMaterial({
+      map: texture,
+      roughness: 0.2,
+      transmission: 0.8,
+      thickness: 8,
+      emissive: 0xa21caf,
+      emissiveIntensity: 0.7,
+      clearcoat: 1,
+      clearcoatRoughness: 0.1,
+      opacity: 0.85,
+      transparent: true
+    });
+    const geometry = new THREE.SphereGeometry(32, 64, 64);
+    const ball = new THREE.Mesh(geometry, material);
+    scene.add(ball);
+    // Lighting
+    const ambient = new THREE.AmbientLight(0xffffff, 0.7);
+    scene.add(ambient);
+    const point = new THREE.PointLight(0xf472b6, 1, 400);
+    point.position.set(0, 0, 100);
+    scene.add(point);
+    // Animation
+    let t = 0;
+    function animate() {
+      t += 0.018;
+      ball.position.x = Math.sin(t) * (width/2 - 60) * 0.7;
+      ball.position.y = Math.abs(Math.cos(t) * 60) - 40;
+      ball.scale.x = 1 + 0.08 * Math.sin(t*2);
+      ball.scale.y = 1 + 0.08 * Math.cos(t*2);
+      ball.scale.z = 1 + 0.08 * Math.sin(t*2 + 1);
+      renderer.render(scene, camera);
+      requestAnimationFrame(animate);
+    }
+    animate();
+    // Responsive
+    window.addEventListener('resize', () => {
+      const w = canvas.parentElement.offsetWidth;
+      canvas.width = w;
+      renderer.setSize(w, height);
+      camera.aspect = w / height;
+      camera.updateProjectionMatrix();
+    });
+  });
+  </script>
+  <!-- Three.js blob for profile photo -->
+  <script>
+  window.addEventListener('DOMContentLoaded', () => {
+    const canvas = document.getElementById('profile-blob-canvas');
+    if (!canvas) return;
+    const width = 290, height = 290;
+    canvas.width = width;
+    canvas.height = height;
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
+    camera.position.z = 180;
+    const renderer = new THREE.WebGLRenderer({ canvas, alpha: true });
+    renderer.setSize(width, height);
+    // Gradient texture
+    const gradCanvas = document.createElement('canvas');
+    gradCanvas.width = gradCanvas.height = 256;
+    const ctx = gradCanvas.getContext('2d');
+    const grad = ctx.createRadialGradient(128, 128, 10, 128, 128, 128);
+    grad.addColorStop(0, '#f472b6');
+    grad.addColorStop(0.5, '#a21caf');
+    grad.addColorStop(1, '#22223b');
+    ctx.fillStyle = grad;
+    ctx.fillRect(0, 0, 256, 256);
+    const texture = new THREE.CanvasTexture(gradCanvas);
+    const geometry = new THREE.SphereGeometry(60, 64, 64);
+    const material = new THREE.MeshPhysicalMaterial({
+      map: texture,
+      roughness: 0.18,
+      transmission: 0.85,
+      thickness: 10,
+      emissive: 0xf472b6,
+      emissiveIntensity: 0.5,
+      clearcoat: 1,
+      clearcoatRoughness: 0.08,
+      opacity: 0.82,
+      transparent: true
+    });
+    const ball = new THREE.Mesh(geometry, material);
+    scene.add(ball);
+    const ambient = new THREE.AmbientLight(0xffffff, 0.7);
+    scene.add(ambient);
+    const point = new THREE.PointLight(0xf472b6, 1, 400);
+    point.position.set(0, 0, 100);
+    scene.add(point);
+    let t = 0;
+    function animate() {
+      t += 0.012;
+      ball.rotation.y = t * 0.5;
+      ball.rotation.x = Math.sin(t) * 0.2;
+      ball.scale.x = 1 + 0.06 * Math.sin(t*2);
+      ball.scale.y = 1 + 0.06 * Math.cos(t*2);
+      ball.scale.z = 1 + 0.06 * Math.sin(t*2 + 1);
+      renderer.render(scene, camera);
+      requestAnimationFrame(animate);
+    }
+    animate();
+  });
+  </script>
+</body>
+</html> 
