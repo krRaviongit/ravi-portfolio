@@ -822,10 +822,7 @@
   <section id="about" class="max-w-4xl mx-auto py-20 px-4" data-aos="fade-up">
     <div class="flex flex-col md:flex-row items-center md:items-start gap-8">
       <div style="position:relative;display:inline-block;">
-        <!-- Greenish faded blob animation to the left of the profile photo -->
-        <svg class="absolute -left-20 top-8 w-[180px] h-[180px] opacity-30 z-0 animate-about-blob-float" viewBox="0 0 180 180" fill="none" style="filter: blur(24px); pointer-events:none;">
-          <ellipse cx="90" cy="90" rx="80" ry="70" fill="#a3e635" />
-        </svg>
+
         <canvas id="profile-blob-canvas" style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:290px;height:290px;z-index:0;pointer-events:none;"></canvas>
         <img src="assets/profilePhoto.jpg" alt="Profile" class="w-64 h-64 rounded-full object-cover object-top shadow-lg mb-6 md:mb-0 profile-photo-hover bg-transparent transition-all duration-300" style="position:relative;z-index:1;" />
       </div>
