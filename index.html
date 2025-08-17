@@ -15,6 +15,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Unkempt:wght@700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
@@ -24,10 +25,10 @@
     tailwind.config = {
       darkMode: 'class',
       theme: {
-        extend: {
-          fontFamily: {
-            poppins: ['Poppins', 'sans-serif'],
-          },
+                  extend: {
+            fontFamily: {
+              poppins: ['Poppins', 'sans-serif'],
+            },
           colors: {
             primary: '#a21caf', // purple
             accent: '#f472b6', // pink
@@ -42,6 +43,13 @@
     body { font-family: 'Poppins', sans-serif; }
     html { scroll-behavior: smooth; }
     h1, h2, h3, h4, h5, h6 { font-family: 'Poppins', sans-serif; }
+    .space-mono-font { font-family: 'Space Mono', monospace; }
+    
+    /* Force solid black background in dark mode */
+    .dark #hero {
+      background: #000000 !important;
+      background-image: none !important;
+    }
     .profile-photo-hover {
       border: none !important;
       position: relative;
@@ -643,126 +651,503 @@
       .py-20 { padding-top: 2.5rem !important; padding-bottom: 2.5rem !important; }
       .px-4 { padding-left: 0.5rem !important; padding-right: 0.5rem !important; }
     }
-    /* Glassmorphic Contact Form */
-    .glassmorphic-form {
-      background: rgba(255,255,255,0.25);
-      border: 1px solid rgba(14,165,233,0.15);
-      box-shadow: 0 8px 32px 0 rgba(14,165,233,0.08), 0 1.5px 8px 0 rgba(14,165,233,0.06);
-      backdrop-filter: blur(20px) saturate(1.1);
-      -webkit-backdrop-filter: blur(20px) saturate(1.1);
-      border-radius: 1.5rem;
-      padding: 2.5rem 2rem;
-    }
-    .dark .glassmorphic-form {
-      background: rgba(15,23,42,0.4);
-      border: 1px solid rgba(14,165,233,0.2);
-      box-shadow: 0 8px 32px 0 rgba(14,165,233,0.12), 0 1.5px 8px 0 rgba(14,165,233,0.08);
-    }
-    .glassmorphic-input {
-      background: transparent !important;
-      border-radius: 0.75rem !important;
-      border: none !important;
-      border-bottom: 2px solid #e2e8f0 !important;
-      color: inherit !important;
-      box-shadow: none !important;
-      outline: none !important;
-      transition: all 0.3s ease;
-      font-size: 1rem;
-    }
-    .glassmorphic-input:focus {
-      border-bottom: 2px solid #0ea5e9 !important;
-      background: rgba(14,165,233,0.02) !important;
-      transform: translateY(-1px);
-    }
-    .dark .glassmorphic-input {
-      border-bottom: 2px solid #475569 !important;
-      color: #f1f5f9 !important;
-    }
-    .dark .glassmorphic-input:focus {
-      border-bottom: 2px solid #0ea5e9 !important;
-      background: rgba(14,165,233,0.05) !important;
-    }
-    .glassmorphic-form input::placeholder,
-    .glassmorphic-form textarea::placeholder {
-      color: #64748b;
-      opacity: 1;
-      font-size: 1rem;
-    }
-    .dark .glassmorphic-form input::placeholder,
-    .dark .glassmorphic-form textarea::placeholder {
-      color: #94a3b8;
-    }
-    .glassmorphic-form button {
-      border-color: #1f2937;
-      color: #1f2937;
-      background: transparent;
-      font-weight: 600;
-      letter-spacing: 0.025em;
-    }
-    .glassmorphic-form button:hover, .glassmorphic-form button:focus {
-      background: #1f2937;
-      color: #ffffff;
-      border-color: #1f2937;
-      transform: translateY(-2px);
-      box-shadow: 0 8px 25px rgba(31,41,55,0.3);
-    }
-    .dark .glassmorphic-form button {
-      border-color: #ffffff;
-      color: #ffffff;
-    }
-    .dark .glassmorphic-form button:hover, .dark .glassmorphic-form button:focus {
-      background: #ffffff;
-      color: #1f2937;
-      border-color: #ffffff;
-      box-shadow: 0 8px 25px rgba(255,255,255,0.3);
-    }
-    nav a:focus, #mobile-menu a:focus {
-      outline: none;
-      box-shadow: none;
-    }
-    .scroll-smooth a:focus, .scroll-smooth a:active {
-      outline: none;
-      box-shadow: none;
-    }
-    .scroll-down:focus, .scroll-down:active {
-      outline: none;
-      box-shadow: none;
+    
+    /* Enhanced Mobile Responsiveness */
+    @media (max-width: 768px) {
+      /* Navbar adjustments */
+      .navbar-brand {
+        font-size: 1.5rem !important;
+      }
+      
+      /* Hero section mobile optimizations */
+      #hero {
+        padding-top: 6rem !important;
+        padding-bottom: 3rem !important;
+        min-height: 90vh !important;
+      }
+      
+      #hero h1 {
+        font-size: 2.5rem !important;
+        line-height: 3rem !important;
+        margin-bottom: 1rem !important;
+      }
+      
+      #hero p {
+        font-size: 1.1rem !important;
+        margin-bottom: 2rem !important;
+      }
+      
+      /* About section mobile layout */
+      #about {
+        padding: 3rem 1rem !important;
+      }
+      
+      #about .flex-col.md\:flex-row {
+        flex-direction: column !important;
+        gap: 2rem !important;
+        text-align: center !important;
+      }
+      
+      #about img {
+        width: 250px !important;
+        height: 250px !important;
+        margin: 0 auto 1rem auto !important;
+      }
+      
+      /* Skills section mobile grid */
+      #skills {
+        padding: 3rem 1rem !important;
+      }
+      
+      .skills-line-row {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 1.5rem !important;
+        max-width: 100% !important;
+      }
+      
+      .skills-bubble-grid-icon {
+        min-width: 80px !important;
+        min-height: 80px !important;
+        padding: 0.5rem !important;
+      }
+      
+      .skills-bubble-grid-icon img {
+        width: 48px !important;
+        height: 48px !important;
+      }
+      
+      .skills-bubble-grid-icon span {
+        font-size: 0.9rem !important;
+        margin-top: 0.3rem !important;
+      }
+      
+      /* Projects section mobile */
+      #projects {
+        padding: 3rem 1rem !important;
+      }
+      
+      #projects .grid {
+        grid-template-columns: 1fr !important;
+        gap: 2rem !important;
+      }
+      
+      .project-card {
+        padding: 1.5rem !important;
+      }
+      
+      .project-card img {
+        height: 200px !important;
+      }
+      
+           /* Contact section mobile */
+     #contact {
+       padding: 3rem 1rem !important;
+     }
+     
+     .glassmorphic-form {
+       padding: 1.5rem !important;
+       margin: 0 0.5rem !important;
+     }
+     
+     /* Contact text alignment for mobile */
+     #contact p {
+       text-align: center !important;
+     }
+     
+     #contact .flex-col.sm\:flex-row {
+       flex-direction: column !important;
+       gap: 0.5rem !important;
+     }
+     
+     #contact a[href^="mailto:"] {
+       word-break: break-all !important;
+       text-align: center !important;
+       display: block !important;
+       width: 100% !important;
+     }
+     
+     /* Mobile font sizing for contact */
+     @media (max-width: 640px) {
+       #contact .text-lg {
+         font-size: 0.875rem !important;
+         line-height: 1.25rem !important;
+       }
+       
+       #contact .text-sm {
+         font-size: 0.75rem !important;
+         line-height: 1rem !important;
+       }
+       
+       #contact a[href^="mailto:"] {
+         font-size: 0.875rem !important;
+         line-height: 1.25rem !important;
+       }
+       
+       /* Ensure perfect centering on mobile */
+       #contact .flex-col.sm\:flex-row {
+         text-align: center !important;
+         justify-content: center !important;
+         align-items: center !important;
+       }
+       
+       #contact .max-w-2xl {
+         max-width: 100% !important;
+         padding: 0 1rem !important;
+       }
+       
+       /* Perfect centering for response time text */
+       #contact .text-center.w-full {
+         display: flex !important;
+         justify-content: center !important;
+         align-items: center !important;
+         width: 100% !important;
+       }
+       
+       #contact .text-center.w-full span {
+         text-align: center !important;
+         display: block !important;
+         width: 100% !important;
+       }
+     }
+     
+     /* Desktop contact layout */
+     @media (min-width: 640px) {
+       #contact .flex-col.sm\:flex-row {
+         flex-direction: row !important;
+         gap: 0.5rem !important;
+       }
+       
+       #contact a[href^="mailto:"] {
+         word-break: normal !important;
+         display: inline !important;
+         width: auto !important;
+       }
+       
+       /* Perfect centering for response time text on desktop */
+       #contact .text-center.w-full {
+         display: flex !important;
+         justify-content: center !important;
+         align-items: center !important;
+         width: 100% !important;
+       }
+       
+       #contact .text-center.w-full span {
+         text-align: center !important;
+         display: block !important;
+         width: 100% !important;
+       }
+       
+       /* About paragraph desktop improvements */
+       #about p {
+         font-size: 1rem !important;
+         line-height: 1.6rem !important;
+         text-align: left !important;
+         word-spacing: normal !important;
+         letter-spacing: normal !important;
+       }
+     }
+      
+      /* Footer mobile */
+      footer {
+        padding: 2rem 1rem !important;
+      }
     }
     
-    /* Scroll down button hover effect */
-    a[href="#about"]:hover {
-      box-shadow: none;
-      transition: all 0.3s ease;
+    @media (max-width: 480px) {
+      /* Extra small devices */
+      body {
+        padding: 0 0.25rem !important;
+      }
+      
+      /* Navbar */
+      .navbar-brand {
+        font-size: 1.3rem !important;
+      }
+      
+      /* Hero section */
+      #hero h1 {
+        font-size: 2rem !important;
+        line-height: 2.5rem !important;
+      }
+      
+      #hero p {
+        font-size: 1rem !important;
+      }
+      
+             /* About section */
+       #about img {
+         width: 200px !important;
+         height: 200px !important;
+       }
+       
+       /* About paragraph mobile improvements */
+       #about p {
+         font-size: 0.875rem !important;
+         line-height: 1.4rem !important;
+         text-align: justify !important;
+         word-spacing: normal !important;
+         letter-spacing: normal !important;
+         hyphens: auto !important;
+         -webkit-hyphens: auto !important;
+         -ms-hyphens: auto !important;
+       }
+      
+      /* Skills grid for very small screens */
+      .skills-line-row {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 1rem !important;
+      }
+      
+      .skills-bubble-grid-icon {
+        min-width: 70px !important;
+        min-height: 70px !important;
+      }
+      
+      .skills-bubble-grid-icon img {
+        width: 40px !important;
+        height: 40px !important;
+      }
+      
+      .skills-bubble-grid-icon span {
+        font-size: 0.8rem !important;
+      }
+      
+      /* Project cards */
+      .project-card {
+        padding: 1rem !important;
+      }
+      
+      .project-card img {
+        height: 180px !important;
+      }
+      
+      /* Contact form */
+      .glassmorphic-form {
+        padding: 1rem !important;
+      }
+      
+      /* Buttons */
+      .dynamic-btn {
+        padding: 0.75rem 1.5rem !important;
+        font-size: 0.9rem !important;
+      }
+      
+      /* Typography adjustments */
+      h2 {
+        font-size: 1.5rem !important;
+        line-height: 2rem !important;
+      }
+      
+      h3 {
+        font-size: 1.2rem !important;
+        line-height: 1.6rem !important;
+      }
+      
+      p {
+        font-size: 0.95rem !important;
+        line-height: 1.5rem !important;
+      }
     }
     
-    a[href="#about"]:hover span:first-child {
-      background-color: #fff !important;
-      border: none !important;
-      box-shadow: none !important;
+    @media (max-width: 360px) {
+      /* Very small devices */
+      .skills-line-row {
+        grid-template-columns: 1fr !important;
+        gap: 1rem !important;
+      }
+      
+      .skills-bubble-grid-icon {
+        min-width: 60px !important;
+        min-height: 60px !important;
+      }
+      
+      .skills-bubble-grid-icon img {
+        width: 36px !important;
+        height: 36px !important;
+      }
+      
+      #hero h1 {
+        font-size: 1.8rem !important;
+        line-height: 2.2rem !important;
+      }
+      
+      #about img {
+        width: 180px !important;
+        height: 180px !important;
+      }
     }
     
-    a[href="#about"]:hover svg {
-      color: #0ea5e9 !important;
+    /* Landscape orientation adjustments */
+    @media (max-height: 500px) and (orientation: landscape) {
+      #hero {
+        min-height: 100vh !important;
+        padding-top: 4rem !important;
+        padding-bottom: 2rem !important;
+      }
+      
+      #hero h1 {
+        font-size: 2rem !important;
+        margin-bottom: 0.5rem !important;
+      }
+      
+      #hero p {
+        font-size: 1rem !important;
+        margin-bottom: 1rem !important;
+      }
+      
+      .min-h-screen {
+        min-height: 100vh !important;
+      }
     }
     
-    a[href="#about"]:hover span:last-child {
-      color: #0ea5e9 !important;
-    }
+         /* Touch device optimizations */
+     @media (hover: none) and (pointer: coarse) {
+       .project-card:hover {
+         transform: none !important;
+       }
+       
+       .project-card:active {
+         transform: scale(0.98) !important;
+       }
+       
+       .dynamic-btn:hover {
+         transform: none !important;
+       }
+       
+       .dynamic-btn:active {
+         transform: scale(0.95) !important;
+       }
+       
+       .skills-bubble-grid-icon:hover {
+         transform: none !important;
+       }
+       
+       .skills-bubble-grid-icon:active {
+         transform: scale(0.95) !important;
+       }
+     }
+     
+     /* Glassmorphic Contact Form */
+     .glassmorphic-form {
+       background: rgba(255,255,255,0.25);
+       border: 1px solid rgba(14,165,233,0.15);
+       box-shadow: 0 8px 32px 0 rgba(14,165,233,0.08), 0 1.5px 8px 0 rgba(14,165,233,0.06);
+       backdrop-filter: blur(20px) saturate(1.1);
+       -webkit-backdrop-filter: blur(20px) saturate(1.1);
+       border-radius: 1.5rem;
+       padding: 2.5rem 2rem;
+     }
+     .dark .glassmorphic-form {
+       background: rgba(15,23,42,0.4);
+       border: 1px solid rgba(14,165,233,0.2);
+       box-shadow: 0 8px 32px 0 rgba(14,165,233,0.12), 0 1.5px 8px 0 rgba(14,165,233,0.08);
+     }
+     .glassmorphic-input {
+       background: transparent !important;
+       border-radius: 0.75rem !important;
+       border: none !important;
+       border-bottom: 2px solid #e2e8f0 !important;
+       color: inherit !important;
+       box-shadow: none !important;
+       outline: none !important;
+       transition: all 0.3s ease;
+       font-size: 1rem;
+     }
+     .glassmorphic-input:focus {
+       border-bottom: 2px solid #0ea5e9 !important;
+       background: rgba(14,165,233,0.02) !important;
+       transform: translateY(-1px);
+     }
+     .dark .glassmorphic-input {
+       border-bottom: 2px solid #475569 !important;
+       color: #f1f5f9 !important;
+     }
+     .dark .glassmorphic-input:focus {
+       border-bottom: 2px solid #0ea5e9 !important;
+       background: rgba(14,165,233,0.05) !important;
+     }
+     .glassmorphic-form input::placeholder,
+     .glassmorphic-form textarea::placeholder {
+       color: #64748b;
+       opacity: 1;
+       font-size: 1rem;
+     }
+     .dark .glassmorphic-form input::placeholder,
+     .dark .glassmorphic-form textarea::placeholder {
+       color: #94a3b8;
+     }
+     .glassmorphic-form button {
+       border-color: #1f2937;
+       color: #1f2937;
+       background: transparent;
+       font-weight: 600;
+       letter-spacing: 0.025em;
+     }
+     .glassmorphic-form button:hover, .glassmorphic-form button:focus {
+       background: #1f2937;
+       color: #ffffff;
+       border-color: #1f2937;
+       transform: translateY(-2px);
+       box-shadow: 0 8px 25px rgba(31,41,55,0.3);
+     }
+     .dark .glassmorphic-form button {
+       border-color: #ffffff;
+       color: #ffffff;
+     }
+     .dark .glassmorphic-form button:hover, .dark .glassmorphic-form button:focus {
+       background: #ffffff;
+       color: #1f2937;
+       border-color: #ffffff;
+       box-shadow: 0 8px 25px rgba(255,255,255,0.3);
+     }
+     nav a:focus, #mobile-menu a:focus {
+       outline: none;
+       box-shadow: none;
+     }
+     .scroll-smooth a:focus, .scroll-smooth a:active {
+       outline: none;
+       box-shadow: none;
+     }
+     .scroll-down:focus, .scroll-down:active {
+       outline: none;
+       box-shadow: none;
+     }
+     
+     /* Scroll down button hover effect */
+     a[href="#about"]:hover {
+       box-shadow: none;
+       transition: all 0.3s ease;
+     }
+     
+     a[href="#about"]:hover span:first-child {
+       background-color: #fff !important;
+       border: none !important;
+       box-shadow: none !important;
+     }
+     
+     a[href="#about"]:hover svg {
+       color: #0ea5e9 !important;
+     }
+     
+     a[href="#about"]:hover span:last-child {
+       color: #0ea5e9 !important;
+     }
   </style>
 </head>
 <body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300">
   <!-- Navbar -->
-  <nav class="fixed top-0 left-0 w-full z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur border-b border-gray-200 dark:border-gray-800 shadow-sm transition-all duration-300">
-    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center relative">
+  <nav class="fixed top-0 left-0 w-full z-50 bg-white/90 dark:bg-gray-900/90 backdrop-blur-md border-b border-gray-200 dark:border-gray-800 shadow-sm transition-all duration-300">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between relative">
       <a href="#hero" class="text-2xl font-bold tracking-tight navbar-brand z-10" style="color: #0ea5e9;">Portfolio.</a>
-      <div class="hidden md:flex space-x-8 font-medium absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
-        <a href="#about" class="transition scroll-link">About</a>
-        <a href="#projects" class="transition scroll-link">Projects</a>
-        <a href="#resume" class="transition scroll-link">Resume</a>
-        <a href="#contact" class="transition scroll-link">Contact</a>
+      <div class="hidden md:flex space-x-8 font-medium">
+        <a href="#about" class="transition scroll-link text-sm">ABOUT</a>
+        <a href="#projects" class="transition scroll-link text-sm">PROJECTS</a>
+        <a href="#resume" class="transition scroll-link text-sm">RESUME</a>
+        <a href="#contact" class="transition scroll-link text-sm">CONTACT</a>
       </div>
-      <div class="flex items-center space-x-4 ml-auto z-10">
-        <button id="theme-toggle" class="p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800 transition">
+      <div class="flex items-center space-x-4 z-10">
+        <button id="theme-toggle" class="p-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors duration-200">
           <span id="theme-icon">
             <!-- Default: Moon icon (for light mode) -->
             <svg id="icon-moon" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
@@ -775,43 +1160,61 @@
             </svg>
           </span>
         </button>
-        <button id="menu-toggle" class="md:hidden p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800 transition">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        <button id="menu-toggle" class="md:hidden p-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors duration-200">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
         </button>
       </div>
     </div>
-    <div id="mobile-menu" class="md:hidden hidden px-4 pb-4">
-      <a href="#about" class="block py-2 hover:text-primary scroll-link">About</a>
-      <a href="#projects" class="block py-2 hover:text-primary scroll-link">Projects</a>
-      <a href="#resume" class="block py-2 hover:text-primary scroll-link">Resume</a>
-      <a href="#contact" class="block py-2 hover:text-primary scroll-link">Contact</a>
+    <div id="mobile-menu" class="md:hidden hidden bg-white/95 dark:bg-gray-900/95 backdrop-blur-md border-t border-gray-200 dark:border-gray-800">
+      <div class="px-4 py-3 space-y-2">
+        <a href="#about" class="block py-3 px-4 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-200 scroll-link text-sm">ABOUT</a>
+        <a href="#projects" class="block py-3 px-4 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-200 scroll-link text-sm">PROJECTS</a>
+        <a href="#resume" class="block py-3 px-4 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-200 scroll-link text-sm">RESUME</a>
+        <a href="#contact" class="block py-3 px-4 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-200 scroll-link text-sm">CONTACT</a>
+      </div>
     </div>
   </nav>
 
   <!-- Hero Section -->
-  <section id="hero" class="min-h-screen flex flex-col justify-center items-center text-center bg-gradient-to-br from-primary/20 via-accent/20 to-lime-100 dark:from-secondary/30 dark:via-primary/30 dark:to-gray-900 pt-24 relative overflow-hidden">
+  <section id="hero" class="min-h-screen flex flex-col justify-center items-center text-center bg-gradient-to-br from-primary/20 via-accent/20 to-lime-100 dark:bg-black pt-24 relative overflow-hidden px-4">
     <!-- Animated Hero Background Shapes -->
-    <svg class="absolute left-1/4 top-1/4 w-[320px] h-[320px] opacity-20 z-0 animate-hero-float-updown" viewBox="0 0 320 320" fill="none" style="filter: blur(12px);">
+    <svg class="absolute left-1/4 top-1/4 w-[320px] h-[320px] opacity-20 z-0 animate-hero-float-updown hidden md:block dark:opacity-15" viewBox="0 0 320 320" fill="none" style="filter: blur(12px);">
       <circle cx="160" cy="160" r="140" fill="#0ea5e9" />
     </svg>
-    <svg class="absolute right-1/4 top-1/3 w-[220px] h-[220px] opacity-15 z-0 animate-hero-float-updown2" viewBox="0 0 220 220" fill="none" style="filter: blur(10px);">
+    <svg class="absolute right-1/4 top-1/3 w-[220px] h-[220px] opacity-15 z-0 animate-hero-float-updown2 hidden md:block dark:opacity-15" viewBox="0 0 220 220" fill="none" style="filter: blur(10px);">
       <rect x="30" y="30" width="160" height="160" rx="60" fill="#ec4899" />
     </svg>
+    <!-- Mobile-optimized background shapes -->
+    <svg class="absolute left-1/4 top-1/4 w-[200px] h-[200px] opacity-15 z-0 animate-hero-float-updown md:hidden dark:opacity-15" viewBox="0 0 200 200" fill="none" style="filter: blur(8px);">
+      <circle cx="100" cy="100" r="80" fill="#0ea5e9" />
+    </svg>
+    <svg class="absolute right-1/4 top-1/3 w-[150px] h-[150px] opacity-10 z-0 animate-hero-float-updown2 md:hidden dark:opacity-15" viewBox="0 0 150 150" fill="none" style="filter: blur(6px);">
+      <rect x="20" y="20" width="110" height="110" rx="40" fill="#ec4899" />
+    </svg>
     <!-- New Faded Moving Blob -->
-    <svg class="absolute left-1/2 top-1/2 w-[200px] h-[200px] opacity-25 z-0 animate-hero-blob-move" viewBox="0 0 200 200" fill="none" style="filter: blur(20px); transform: translate(-50%, -50%);">
+    <svg class="absolute left-1/2 top-1/2 w-[200px] h-[200px] opacity-25 z-0 animate-hero-blob-move hidden md:block dark:opacity-20" viewBox="0 0 200 200" fill="none" style="filter: blur(20px); transform: translate(-50%, -50%);">
       <circle cx="100" cy="100" r="80" fill="#10b981" />
     </svg>
-    <h1 class="text-4xl md:text-6xl font-bold mb-4">
-      <span id="typed-hero"></span>
-    </h1>
-    <p class="text-lg md:text-2xl mb-8 font-medium text-gray-700 dark:text-gray-300">Full Stack Developer | Designer | Tech Enthusiast</p>
-    <div class="flex flex-col sm:flex-row gap-4 justify-center">
-      <a href="#projects" class="px-6 py-3 bg-[#0369a1] text-white rounded shadow transition font-semibold dynamic-btn scroll-link">View Projects</a>
-      <a href="#contact" class="px-6 py-3 bg-[#0369a1] text-white rounded shadow transition font-semibold dynamic-btn scroll-link">Hire Me</a>
+    <svg class="absolute left-1/2 top-1/2 w-[120px] h-[120px] opacity-20 z-0 animate-hero-blob-move md:hidden dark:opacity-20" viewBox="0 0 120 120" fill="none" style="filter: blur(12px); transform: translate(-50%, -50%);">
+      <circle cx="60" cy="60" r="50" fill="#10b981" />
+    </svg>
+    
+         <div class="relative z-10 max-w-4xl mx-auto" data-motion="hero-container">
+       <h1 class="text-lg sm:text-xl md:text-5xl font-bold mb-4 leading-tight space-mono-font" data-motion="hero-title">
+         <span id="typed-hero"></span>
+       </h1>
+              <p class="text-base md:text-xl mb-8 font-medium text-gray-700 dark:text-gray-300 max-w-2xl mx-auto" data-motion="hero-subtitle">Full Stack Developer | Designer | Tech Enthusiast</p>
+              <div class="flex flex-col sm:flex-row gap-4 justify-center items-center" data-motion="hero-buttons">
+          <a href="#projects" class="w-full sm:w-auto px-6 py-4 bg-[#0369a1] text-white rounded-lg shadow-lg transition-all duration-300 font-semibold dynamic-btn scroll-link text-center my-2" data-motion="cta-button">View Projects</a>
+          <a href="#contact" class="w-full sm:w-auto px-6 py-4 bg-[#0369a1] text-white rounded-lg shadow-lg transition-all duration-300 font-semibold dynamic-btn scroll-link text-center my-2" data-motion="cta-button">Hire Me</a>
+        </div>
     </div>
+    
     <!-- Scroll Down Button -->
     <a href="#about" class="absolute left-1/2 bottom-8 -translate-x-1/2 flex flex-col items-center z-10" style="text-decoration:none;">
-      <span class="w-12 h-12 flex items-center justify-center rounded-full bg-gray-200/60 dark:bg-gray-700/60 mb-1">
+      <span class="w-12 h-12 flex items-center justify-center rounded-full bg-gray-200/60 dark:bg-gray-700/60 mb-1 backdrop-blur-sm">
         <svg class="w-7 h-7 text-gray-500 dark:text-gray-300 animate-bounce" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </span>
       <span class="text-xs text-gray-500 dark:text-gray-300">Scroll Down</span>
@@ -820,21 +1223,18 @@
 
   <!-- About Me -->
   <section id="about" class="max-w-4xl mx-auto py-20 px-4" data-aos="fade-up">
-    <div class="flex flex-col md:flex-row items-center md:items-start gap-20">
-      <div style="position:relative;display:inline-block;">
-
+    <div class="flex flex-col md:flex-row items-center md:items-start gap-12 md:gap-20">
+      <div class="flex-shrink-0" style="position:relative;display:inline-block;" data-motion="profile-container">
         <canvas id="profile-blob-canvas" style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:290px;height:290px;z-index:0;pointer-events:none;"></canvas>
-        <img src="assets\photo_anime2.png" alt="Profile" class="w-80 h-80 rounded-full object-cover object-top shadow-lg mb-6 md:mb-0 profile-photo-hover bg-transparent transition-all duration-300" style="position:relative;z-index:1;" />
+        <img src="assets\photo_anime2.png" alt="Profile" class="w-72 h-72 md:w-96 md:h-96 rounded-full object-cover object-top shadow-lg mb-6 md:mb-0 profile-photo-hover bg-transparent transition-all duration-300" style="position:relative;z-index:1;" data-motion="profile-image" />
       </div>
-      <div class="flex-1 flex flex-col justify-center">
-        <h2 class="text-3xl font-bold mb-6 flex items-center gap-2">About Me
+      <div class="flex-1 flex flex-col justify-center" data-motion="about-content">
+        <h2 class="text-3xl font-black mb-6 flex items-center justify-center md:justify-start gap-2 font-mono text-blue-800 dark:text-[#0ea5e9]" style="letter-spacing: 0.1em; font-weight: 900;" data-motion="about-title">ABOUT ME
           <span class="inline-block animate-bounce">
-            <svg class="w-7 h-7 text-primary" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor"/><path d="M8 12l2 2 4-4" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <svg class="w-7 h-7 text-primary dark:text-purple-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor"/><path d="M8 12l2 2 4-4" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </span>
         </h2>
-        <p class="mb-4 text-gray-700 dark:text-gray-300 text-justify mt-2">I'm Kumar Ravi, a passionate Full Stack Developer with a knack for building modern web applications and creative digital experiences. I love exploring new technologies and turning ideas into reality through code and design.</p>
-        <!-- <div class="mb-2"><span class="font-semibold">Education:</span> B.Tech in CSE | SRMIST Delhi NCR | CGPA 9.26</div>
-      </div> -->
+        <p class="mb-4 text-gray-700 dark:text-gray-300 text-justify mt-2 leading-loose text-sm sm:text-base" style="word-spacing: 0.1em;">I'm Kumar Ravi, a passionate Full Stack Developer with a knack for building modern web applications and creative digital experiences. I love exploring new technologies and turning ideas into reality through code and design.</p>
         <!-- Resume Content Start -->
         <div class="mt-10" id="resume">
           <div class="relative inline-block mb-8 animate-fadeIn" style="z-index:1;">
@@ -847,7 +1247,7 @@
             <svg class="absolute top-1/2 left-0 w-5 h-5 animate-shape-float-6 opacity-60" viewBox="0 0 24 24"><polygon points="12,2 22,22 2,22" fill="#fbbf24"/></svg>
             <svg class="absolute bottom-0 right-1/2 w-3 h-3 animate-shape-float-7 opacity-60" viewBox="0 0 24 24"><circle cx="12" cy="12" r="6" fill="#6366f1"/></svg>
             <svg class="absolute top-0 right-1/3 w-4 h-4 animate-shape-float-8 opacity-60" viewBox="0 0 24 24"><rect x="7" y="7" width="10" height="10" rx="2" fill="#10b981"/></svg>
-            <a id="download-resume" href="RESUME4.pdf" target="_blank" rel="noopener" class="inline-block px-6 py-3 bg-[#0369a1] text-white rounded shadow transition font-semibold dynamic-btn scroll-mt-32 relative z-10">Download Resume</a>
+            <a id="download-resume" href="KUMAR_RAVI_SOFTWARE_ENGINEER_RESUME6.pdf" target="_blank" rel="noopener" class="inline-block px-6 py-4 bg-[#0369a1] text-white rounded-lg shadow-lg transition-all duration-300 font-semibold dynamic-btn scroll-mt-32 relative z-10 w-full sm:w-auto text-center my-2">Download Resume</a>
           </div>
         </div>
         <!-- Resume Content End -->
@@ -857,18 +1257,20 @@
 
   <!-- Skills Section -->
   <section id="skills" class="max-w-4xl mx-auto py-20 px-4 relative" data-aos="fade-up">
-    <h2 class="text-3xl font-bold mb-8 flex items-center gap-2">Skills
-      <span class="inline-block animate-bounce">
-        <svg class="w-7 h-7 text-primary" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2v20M2 12h20" stroke="currentColor" stroke-linecap="round"/></svg>
-      </span>
+    <h2 class="text-3xl font-black mb-8 flex items-center justify-center gap-2 text-center font-mono text-blue-800 dark:text-[#0ea5e9]" style="letter-spacing: 0.1em; font-weight: 900;">SKILLS & EXPERTISE
+              <span class="inline-block animate-bounce">
+          <svg class="w-7 h-7 text-primary dark:text-purple-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2v20M2 12h20" stroke="currentColor" stroke-linecap="round"/></svg>
+        </span>
     </h2>
     <!-- Add Three.js CDN -->
     <script src="https://cdn.jsdelivr.net/npm/three@0.152.2/build/three.min.js"></script>
+    <!-- Framer Motion -->
+    <script src="https://unpkg.com/framer-motion@10.16.4/dist/framer-motion.js"></script>
     <!-- Add Three.js canvas background to skills section -->
     <div style="position:relative;">
       <canvas id="skills-bg-canvas" style="position:absolute;left:0;top:0;width:100%;height:100%;z-index:0;pointer-events:none;"></canvas>
       <div class="skills-line-bg-container" style="position:relative;display:flex;justify-content:center;align-items:center;z-index:1;">
-        <svg class="skills-line-bg" width="900" height="180" style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:0;pointer-events:none;">
+        <svg class="skills-line-bg hidden md:block" width="900" height="180" style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:0;pointer-events:none;">
           <!-- Very dense, small, animated stars for a professional galaxy effect -->
           <g>
             <circle cx="60" cy="30" r="0.7" fill="#fff" opacity="0.7"><animate attributeName="opacity" values="0.7;0.1;0.7" dur="2.1s" repeatCount="indefinite"/></circle>
@@ -915,16 +1317,23 @@
           </g>
         </svg>
         <div class="skills-line-row" style="position:relative;z-index:1;">
-          <span class="skills-bubble-grid-icon"><img src="assets/java-svgrepo-com.svg" alt="Java" width="64" height="64" style="display:block;" /><span>Java</span></span>
-          <span class="skills-bubble-grid-icon"><img src="assets/python-svgrepo-com.svg" alt="Python" width="64" height="64" style="display:block;" /><span>Python</span></span>
-          <span class="skills-bubble-grid-icon"><img src="assets/html-svgrepo-com.svg" alt="HTML" width="64" height="64" style="display:block;" /><span>HTML</span></span>
-          <span class="skills-bubble-grid-icon"><img src="assets/css-3-svgrepo-com.svg" alt="CSS" width="64" height="64" style="display:block;" /><span>CSS</span></span>
-          <span class="skills-bubble-grid-icon"><img src="assets/js-svgrepo-com.svg" alt="JavaScript" width="64" height="64" style="display:block;" /><span>JavaScript</span></span>
-          <span class="skills-bubble-grid-icon"><img src="assets/react-svgrepo-com.svg" alt="React" width="64" height="64" style="display:block;" /><span>React</span></span>
-          <span class="skills-bubble-grid-icon"><img src="assets/node-js-svgrepo-com.svg" alt="Node.js" width="64" height="64" style="display:block;" /><span>Node.js</span></span>
-          <span class="skills-bubble-grid-icon"><img src="assets/mongodb-svgrepo-com.svg" alt="MongoDB" width="64" height="64" style="display:block;" /><span>MongoDB</span></span>
-          <span class="skills-bubble-grid-icon"><img src="assets/tailwind-svgrepo-com.svg" alt="Tailwind" width="64" height="64" style="display:block;" /><span>Tailwind</span></span>
-          <span class="skills-bubble-grid-icon"><img src="assets/firebase-svgrepo-com.svg" alt="Firebase" width="64" height="64" style="display:block;" /><span>Firebase</span></span>
+          <span class="skills-bubble-grid-icon"><img src="assets/java-svgrepo-com.svg" alt="Java" width="36" height="36" style="display:block;" /><span class="text-xs font-mono" style="font-size: 0.7rem;">Java</span></span>
+          <span class="skills-bubble-grid-icon"><img src="assets/python-svgrepo-com.svg" alt="Python" width="36" height="36" style="display:block;" /><span class="text-xs font-mono" style="font-size: 0.7rem;">Python</span></span>
+          <span class="skills-bubble-grid-icon"><img src="assets/html-svgrepo-com.svg" alt="HTML" width="36" height="36" style="display:block;" /><span class="text-xs font-mono" style="font-size: 0.7rem;">HTML</span></span>
+          <span class="skills-bubble-grid-icon"><img src="assets/css-3-svgrepo-com.svg" alt="CSS" width="36" height="36" style="display:block;" /><span class="text-xs font-mono" style="font-size: 0.7rem;">CSS</span></span>
+          <span class="skills-bubble-grid-icon"><img src="assets/js-svgrepo-com.svg" alt="JavaScript" width="36" height="36" style="display:block;" /><span class="text-xs font-mono" style="font-size: 0.7rem;">JavaScript</span></span>
+          <span class="skills-bubble-grid-icon"><img src="assets/react-svgrepo-com.svg" alt="React" width="36" height="36" style="display:block;" /><span class="text-xs font-mono" style="font-size: 0.7rem;">React</span></span>
+          <span class="skills-bubble-grid-icon"><img src="assets/node-js-svgrepo-com.svg" alt="Node.js" width="36" height="36" style="display:block;" /><span class="text-xs font-mono" style="font-size: 0.7rem;">Node.js</span></span>
+          <span class="skills-bubble-grid-icon"><img src="assets/mongodb-svgrepo-com.svg" alt="MongoDB" width="36" height="36" style="display:block;" /><span class="text-xs font-mono" style="font-size: 0.7rem;">MongoDB</span></span>
+          <span class="skills-bubble-grid-icon"><img src="assets/mysql-svgrepo-com.svg" alt="MySQL" width="36" height="36" style="display:block;" /><span class="text-xs font-mono" style="font-size: 0.7rem;">MySQL</span></span>
+          <span class="skills-bubble-grid-icon"><img src="assets/tailwind-svgrepo-com (1).svg" alt="Tailwind CSS" width="36" height="36" style="display:block;" /><span class="text-xs font-mono" style="font-size: 0.7rem;">Tailwind CSS</span></span>
+          <span class="skills-bubble-grid-icon"><img src="assets/firebase-svgrepo-com.svg" alt="Firebase" width="36" height="36" style="display:block;" /><span class="text-xs font-mono" style="font-size: 0.7rem;">Firebase</span></span>
+          <span class="skills-bubble-grid-icon"><img src="assets/git-svgrepo-com (1).svg" alt="Git" width="36" height="36" style="display:block;" /><span class="text-xs font-mono" style="font-size: 0.7rem;">Git</span></span>
+          <span class="skills-bubble-grid-icon"><img src="assets/vs-code-svgrepo-com.svg" alt="VS Code" width="36" height="36" style="display:block;" /><span class="text-xs font-mono" style="font-size: 0.7rem;">VS Code</span></span>
+          <span class="skills-bubble-grid-icon"><img src="assets/jb-intellij-idea-svgrepo-com.svg" alt="IntelliJ IDEA" width="36" height="36" style="display:block;" /><span class="text-xs font-mono" style="font-size: 0.7rem;">IntelliJ IDEA</span></span>
+          <span class="skills-bubble-grid-icon"><img src="assets/pycharm-svgrepo-com.svg" alt="PyCharm" width="36" height="36" style="display:block;" /><span class="text-xs font-mono" style="font-size: 0.7rem;">PyCharm</span></span>
+          <span class="skills-bubble-grid-icon"><img src="assets/ubuntu-svgrepo-com.svg" alt="Ubuntu" width="36" height="36" style="display:block;" /><span class="text-xs font-mono" style="font-size: 0.7rem;">Ubuntu</span></span>
+          <span class="skills-bubble-grid-icon"><img src="assets/vercel-logo-svgrepo-com.svg" alt="Vercel" width="36" height="36" style="display:block;" /><span class="text-xs font-mono" style="font-size: 0.7rem;">Vercel</span></span>
         </div>
       </div>
     </div>
@@ -933,40 +1342,40 @@
   <!-- Projects Section -->
   <section id="projects" class="bg-gradient-to-br from-accent/10 via-lime-100 to-white dark:from-secondary/20 dark:via-primary/20 dark:to-gray-900 py-20 px-4" data-aos="fade-up">
     <div class="max-w-6xl mx-auto">
-      <h2 class="text-3xl font-bold mb-10 text-center flex items-center justify-center gap-2">Featured Projects
+      <h2 class="text-3xl font-black mb-10 text-center flex items-center justify-center gap-2 font-mono text-blue-800 dark:text-[#0ea5e9]" style="letter-spacing: 0.1em; font-weight: 900;">PROJECTS
         <span class="inline-block animate-bounce">
-          <svg class="w-7 h-7 text-primary" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="4" stroke="currentColor"/><path d="M9 9h6v6H9z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <svg class="w-7 h-7 text-primary dark:text-purple-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="4" stroke="currentColor"/><path d="M9 9h6v6H9z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </span>
       </h2>
-      <div class="grid md:grid-cols-3 gap-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
         <!-- Project 1 -->
         <div class="project-card glass bg-white/60 dark:bg-gray-900/60 rounded-xl shadow-lg transition-transform duration-300 p-6 flex flex-col" data-aos="fade-up" data-aos-delay="100">
-                      <img src="assets/fit.jpeg" alt="Body-Craft" class="rounded-lg mb-4 object-cover h-40 w-full" />
+          <img src="assets/fit.jpeg" alt="Body-Craft" class="rounded-lg mb-4 object-cover h-40 w-full" />
           <h3 class="text-xl font-semibold mb-2">Body-Craft</h3>
           <p class="mb-3 text-gray-700 dark:text-gray-300">AI-Powered AR Fitness Tracker</p>
           <div class="mb-4 text-sm text-gray-500">React, Firebase, Mediapipe</div>
           <div class="mt-auto flex justify-center">
-            <a href="https://body-craft.vercel.app/" target="_blank" class="w-44 px-4 py-2 bg-[#0369a1] text-white rounded transition text-center dynamic-btn whitespace-nowrap">Live Demo</a>
+            <a href="https://body-craft.vercel.app/" target="_blank" class="w-full sm:w-44 px-4 py-3 bg-[#0369a1] text-white rounded-lg transition-all duration-300 text-center dynamic-btn whitespace-nowrap my-2">Live Demo</a>
           </div>
         </div>
         <!-- Project 2 -->
         <div class="project-card glass bg-white/60 dark:bg-gray-900/60 rounded-xl shadow-lg transition-transform duration-300 p-6 flex flex-col" data-aos="fade-up" data-aos-delay="200">
-                      <img src="assets/movie.jpg" alt="Movie Recommender" class="rounded-lg mb-4 object-cover h-40 w-full" />
+          <img src="assets/movie.jpg" alt="Movie Recommender" class="rounded-lg mb-4 object-cover h-40 w-full" />
           <h3 class="text-xl font-semibold mb-2">Movie Recommender System</h3>
           <p class="mb-3 text-gray-700 dark:text-gray-300">Content-based AI Movie Recommender</p>
           <div class="mb-4 text-sm text-gray-500">Python, Streamlit, Pandas</div>
           <div class="mt-auto flex justify-center">
-            <a href="https://ai-movie-recommender-4yht2jlpy9d44m5gtk9fnp.streamlit.app/" target="_blank" class="w-44 px-4 py-2 bg-[#0369a1] text-white rounded transition text-center dynamic-btn whitespace-nowrap">Live Demo</a>
+            <a href="https://ai-movie-recommender-4yht2jlpy9d44m5gtk9fnp.streamlit.app/" target="_blank" class="w-full sm:w-44 px-4 py-3 bg-[#0369a1] text-white rounded-lg transition-all duration-300 text-center dynamic-btn whitespace-nowrap my-2">Live Demo</a>
           </div>
         </div>
         <!-- Project 3 -->
         <div class="project-card glass bg-white/60 dark:bg-gray-900/60 rounded-xl shadow-lg transition-transform duration-300 p-6 flex flex-col" data-aos="fade-up" data-aos-delay="300">
-                      <img src="assets/ball.webp" alt="Cricket Chaos" class="rounded-lg mb-4 object-cover h-40 w-full" />
+          <img src="assets/ball.webp" alt="Cricket Chaos" class="rounded-lg mb-4 object-cover h-40 w-full" />
           <h3 class="text-xl font-semibold mb-2">Cricket Chaos</h3>
           <p class="mb-3 text-gray-700 dark:text-gray-300">Interactive Bat-Ball-Stumps Game</p>
           <div class="mb-4 text-sm text-gray-500">HTML, CSS, JavaScript</div>
           <div class="mt-auto flex justify-center">
-            <a href="https://cricket-fever-game.vercel.app/" target="_blank" class="w-44 px-4 py-2 bg-[#0369a1] text-white rounded transition text-center dynamic-btn whitespace-nowrap">Live Demo</a>
+            <a href="https://cricket-fever-game.vercel.app/" target="_blank" class="w-full sm:w-44 px-4 py-3 bg-[#0369a1] text-white rounded-lg transition-all duration-300 text-center dynamic-btn whitespace-nowrap my-2">Live Demo</a>
           </div>
         </div>
       </div>
@@ -978,7 +1387,7 @@
     <!-- Contact Form Blob Animation -->
     <!-- Removed blue and white blobs from contact section -->
     <div class="max-w-4xl mx-auto">
-      <h2 class="text-3xl font-bold mb-4 text-center flex items-center justify-center gap-2 relative">
+      <h2 class="text-3xl font-black mb-4 text-center flex items-center justify-center gap-2 relative font-mono text-blue-800 dark:text-[#0ea5e9]" style="letter-spacing: 0.1em; font-weight: 900;">
         <!-- Rotating Shapes around Contact Me heading -->
         <svg class="absolute -top-8 -left-8 w-6 h-6 animate-contact-rotate-1 opacity-60" viewBox="0 0 24 24" fill="none">
           <rect x="4" y="4" width="16" height="16" rx="2" fill="#0ea5e9"/>
@@ -992,27 +1401,29 @@
         <svg class="absolute -bottom-8 -right-8 w-5 h-5 animate-contact-rotate-4 opacity-60" viewBox="0 0 24 24" fill="none">
           <rect x="6" y="6" width="12" height="12" rx="3" fill="#fbbf24"/>
         </svg>
-        Contact Me
+        CONTACT ME
         <span class="inline-block animate-bounce">
-          <svg class="w-8 h-8 text-[#0369a1]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-            <rect x="2" y="6" width="20" height="14" rx="3" stroke="#0369a1"/>
-            <path d="M22 6l-10 7L2 6" stroke="#0369a1" stroke-linecap="round" stroke-linejoin="round"/>
+          <svg class="w-8 h-8 text-[#0369a1] dark:text-purple-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <rect x="2" y="6" width="20" height="14" rx="3" stroke="currentColor"/>
+            <path d="M22 6l-10 7L2 6" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </span>
       </h2>
-      <p class="mb-8 text-center text-gray-700 dark:text-gray-300 flex flex-col items-center gap-2 animate-fadeIn">
-        <span class="inline-flex items-center gap-2 text-lg font-medium">
+      <div class="mb-8 text-center text-gray-700 dark:text-gray-300 flex flex-col items-center gap-3 animate-fadeIn">
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-2 text-lg sm:text-lg font-medium max-w-2xl mx-auto">
           <svg class="w-6 h-6 text-[#0369a1]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16v16H4z" stroke="#0369a1" stroke-linecap="round" stroke-linejoin="round"/><path d="M22 6l-10 7L2 6" stroke="#0369a1" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          <span>Feel free to reach out via the form or</span>
-          <a href="mailto:dropanemail2ravi@gmail.com" class="font-bold text-[#0369a1] bg-gradient-to-r from-[#0369a1] to-[#0ea5e9] bg-clip-text text-transparent transition-all duration-300">dropanemail2ravi@gmail.com</a>
-        </span>
-        <span class="text-sm text-gray-500 mt-1">I usually respond within 24 hours!</span>
-      </p>
+          <span class="text-center">Feel free to reach out via the form or</span>
+          <a href="mailto:dropanemail2ravi@gmail.com" class="font-bold text-[#0369a1] bg-gradient-to-r from-[#0369a1] to-[#0ea5e9] bg-clip-text text-transparent transition-all duration-300 hover:scale-105 text-center">dropanemail2ravi@gmail.com</a>
+        </div>
+        <div class="text-center w-full">
+          <span class="text-sm text-gray-500">I usually respond within 24 hours!</span>
+        </div>
+      </div>
       <form action="https://formspree.io/f/mnnzdvwb" method="POST" class="max-w-xl mx-auto glassmorphic-form rounded-2xl p-8 flex flex-col gap-6" id="contact-form">
         <input type="text" name="name" placeholder="Name" required class="glassmorphic-input px-2 py-3 rounded-md border-0 border-b-2 border-gray-200 dark:border-gray-700 bg-transparent focus:border-primary focus:ring-0 transition-all duration-200" />
         <input type="email" name="email" placeholder="Email" required class="glassmorphic-input px-2 py-3 rounded-md border-0 border-b-2 border-gray-200 dark:border-gray-700 bg-transparent focus:border-primary focus:ring-0 transition-all duration-200" />
         <textarea name="message" placeholder="Message" required rows="4" class="glassmorphic-input px-2 py-3 rounded-md border-0 border-b-2 border-gray-200 dark:border-gray-700 bg-transparent focus:border-primary focus:ring-0 transition-all duration-200"></textarea>
-        <button type="submit" class="w-full flex items-center justify-center gap-2 px-6 py-3 rounded-xl border-2 border-primary text-primary bg-transparent font-semibold transition-all duration-200 hover:bg-primary hover:text-white focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2">
+        <button type="submit" class="w-full flex items-center justify-center gap-2 px-6 py-4 rounded-xl border-2 border-primary text-primary bg-transparent font-semibold transition-all duration-200 hover:bg-primary hover:text-white focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 my-2">
           Send Message
           <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 2L11 13" stroke-linecap="round" stroke-linejoin="round"/><path d="M22 2L15 22L11 13L2 9L22 2Z" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </button>
@@ -1070,20 +1481,21 @@
       <div class="flex justify-center gap-6 mt-8">
         <a href="https://github.com/krRaviongit" target="_blank" class="text-2xl hover:text-gray-500 transition"><svg fill="currentColor" viewBox="0 0 24 24" class="w-6 h-6"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.387.6.113.82-.263.82-.582 0-.288-.012-1.243-.018-2.252-3.338.726-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.09-.745.083-.729.083-.729 1.205.085 1.84 1.237 1.84 1.237 1.07 1.834 2.807 1.304 3.492.997.108-.775.418-1.305.762-1.606-2.665-.304-5.466-1.332-5.466-5.93 0-1.31.468-2.38 1.236-3.22-.124-.303-.535-1.523.117-3.176 0 0 1.008-.322 3.3 1.23a11.5 11.5 0 013.003-.404c1.02.005 2.047.138 3.003.404 2.29-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.873.12 3.176.77.84 1.235 1.91 1.235 3.22 0 4.61-2.803 5.624-5.475 5.92.43.37.823 1.102.823 2.222 0 1.606-.015 2.898-.015 3.293 0 .322.216.699.825.58C20.565 21.796 24 17.297 24 12c0-6.63-5.37-12-12-12z"/></svg></a>
         <a href="https://www.linkedin.com/in/kumarravi69/" target="_blank" class="text-2xl hover:text-gray-500 transition"><svg fill="currentColor" viewBox="0 0 24 24" class="w-6 h-6"><path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.28c-.97 0-1.75-.79-1.75-1.75s.78-1.75 1.75-1.75 1.75.79 1.75 1.75-.78 1.75-1.75 1.75zm13.5 11.28h-3v-5.6c0-1.34-.03-3.07-1.87-3.07-1.87 0-2.16 1.46-2.16 2.97v5.7h-3v-10h2.89v1.36h.04c.4-.75 1.38-1.54 2.84-1.54 3.04 0 3.6 2 3.6 4.59v5.59z"/></svg></a>
+        <a href="https://x.com/peakyblunder69?t=bqYd7832dG4J82wLQSokZQ&s=08" target="_blank" class="text-2xl hover:text-gray-500 transition"><svg fill="currentColor" viewBox="0 0 24 24" class="w-6 h-6"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
       </div>
     </div>
   </section>
 
 
 
-  <footer class="relative text-center py-7 text-gray-500 dark:text-gray-400 text-sm bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800 overflow-hidden">
+  <footer class="relative text-center py-7 text-gray-500 dark:text-gray-400 text-xs bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800 overflow-hidden">
     <!-- Animated blue blob bottom right -->
     <svg class="absolute right-0 bottom-0 w-[220px] h-[120px] opacity-25 z-0 animate-footer-blob-float" viewBox="0 0 220 120" fill="none" style="filter: blur(28px); pointer-events:none;">
       <ellipse cx="180" cy="80" rx="80" ry="40" fill="#0ea5e9" />
     </svg>
     <div class="relative z-10 flex flex-col items-center">
-      <div class="text-sm font-bold text-gray-700 dark:text-gray-100 mb-2">Designed with <span style="color:#0ea5e9;">💙</span> by Kumar Ravi</div>
-      <div class="text-sm text-gray-500 dark:text-gray-400">© 2025 Kumar Ravi. All rights reserved.</div>
+      <div class="text-xs font-bold text-gray-700 dark:text-gray-100 mb-2">Designed with <span style="color:#0ea5e9;">💙</span> by <span style="color:#0ea5e9;">Kumar Ravi</span></div>
+      <div class="text-xs text-gray-500 dark:text-gray-400">© 2025 Kumar Ravi. All rights reserved.</div>
     </div>
   </footer>
   <style>
@@ -1376,6 +1788,216 @@
     }
     animate();
   });
+  </script>
+
+  <!-- Framer Motion Animations -->
+  <script>
+    // Wait for Framer Motion to load
+    document.addEventListener('DOMContentLoaded', function() {
+      if (typeof motion !== 'undefined') {
+        // Hero Section Animations
+        const heroContainer = document.querySelector('[data-motion="hero-container"]');
+        const heroTitle = document.querySelector('[data-motion="hero-title"]');
+        const heroSubtitle = document.querySelector('[data-motion="hero-subtitle"]');
+        const heroButtons = document.querySelector('[data-motion="hero-buttons"]');
+        const ctaButtons = document.querySelectorAll('[data-motion="cta-button"]');
+
+        if (heroContainer) {
+          motion(heroContainer, {
+            initial: { opacity: 0, y: 50 },
+            animate: { opacity: 1, y: 0 },
+            transition: { duration: 0.8, ease: "easeOut" }
+          });
+        }
+
+        if (heroTitle) {
+          motion(heroTitle, {
+            initial: { opacity: 0, y: 30 },
+            animate: { opacity: 1, y: 0 },
+            transition: { duration: 0.6, delay: 0.2, ease: "easeOut" }
+          });
+        }
+
+        if (heroSubtitle) {
+          motion(heroSubtitle, {
+            initial: { opacity: 0, y: 20 },
+            animate: { opacity: 1, y: 0 },
+            transition: { duration: 0.6, delay: 0.4, ease: "easeOut" }
+          });
+        }
+
+        if (heroButtons) {
+          motion(heroButtons, {
+            initial: { opacity: 0, y: 20 },
+            animate: { opacity: 1, y: 0 },
+            transition: { duration: 0.6, delay: 0.6, ease: "easeOut" }
+          });
+        }
+
+        // CTA Button hover animations
+        ctaButtons.forEach(button => {
+          motion(button, {
+            whileHover: { 
+              scale: 1.05,
+              boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)"
+            },
+            whileTap: { scale: 0.95 },
+            transition: { duration: 0.2, ease: "easeInOut" }
+          });
+        });
+
+        // About Section Animations
+        const profileContainer = document.querySelector('[data-motion="profile-container"]');
+        const profileImage = document.querySelector('[data-motion="profile-image"]');
+        const aboutContent = document.querySelector('[data-motion="about-content"]');
+        const aboutTitle = document.querySelector('[data-motion="about-title"]');
+
+        if (profileContainer) {
+          motion(profileContainer, {
+            initial: { opacity: 0, x: -50, rotate: -5 },
+            whileInView: { opacity: 1, x: 0, rotate: 0 },
+            transition: { duration: 0.8, ease: "easeOut" },
+            viewport: { once: true, margin: "-100px" }
+          });
+        }
+
+        if (profileImage) {
+          motion(profileImage, {
+            whileHover: { 
+              scale: 1.05,
+              rotate: 2,
+              boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)"
+            },
+            transition: { duration: 0.3, ease: "easeInOut" }
+          });
+        }
+
+        if (aboutContent) {
+          motion(aboutContent, {
+            initial: { opacity: 0, x: 50 },
+            whileInView: { opacity: 1, x: 0 },
+            transition: { duration: 0.8, delay: 0.2, ease: "easeOut" },
+            viewport: { once: true, margin: "-100px" }
+          });
+        }
+
+        if (aboutTitle) {
+          motion(aboutTitle, {
+            initial: { opacity: 0, y: 20 },
+            whileInView: { opacity: 1, y: 0 },
+            transition: { duration: 0.6, ease: "easeOut" },
+            viewport: { once: true, margin: "-100px" }
+          });
+        }
+
+        // Skills Section Animations
+        const skillIcons = document.querySelectorAll('.skills-bubble-grid-icon');
+        skillIcons.forEach((icon, index) => {
+          motion(icon, {
+            initial: { opacity: 0, scale: 0.5, y: 20 },
+            whileInView: { opacity: 1, scale: 1, y: 0 },
+            transition: { 
+              duration: 0.5, 
+              delay: index * 0.1, 
+              ease: "easeOut",
+              type: "spring",
+              stiffness: 100
+            },
+            viewport: { once: true, margin: "-50px" }
+          });
+        });
+
+        // Project Cards Animations
+        const projectCards = document.querySelectorAll('.project-card');
+        projectCards.forEach((card, index) => {
+          motion(card, {
+            initial: { opacity: 0, y: 50, scale: 0.9 },
+            whileInView: { opacity: 1, y: 0, scale: 1 },
+            transition: { 
+              duration: 0.6, 
+              delay: index * 0.2, 
+              ease: "easeOut",
+              type: "spring",
+              stiffness: 80
+            },
+            viewport: { once: true, margin: "-100px" }
+          });
+        });
+
+        // Contact Form Animations
+        const contactForm = document.querySelector('#contact-form');
+        if (contactForm) {
+          motion(contactForm, {
+            initial: { opacity: 0, y: 30, scale: 0.95 },
+            whileInView: { opacity: 1, y: 0, scale: 1 },
+            transition: { duration: 0.8, ease: "easeOut" },
+            viewport: { once: true, margin: "-100px" }
+          });
+        }
+
+        // Social Media Icons Animation
+        const socialIcons = document.querySelectorAll('.flex.justify-center.gap-6 a');
+        socialIcons.forEach((icon, index) => {
+          motion(icon, {
+            initial: { opacity: 0, y: 20 },
+            whileInView: { opacity: 1, y: 0 },
+            transition: { 
+              duration: 0.5, 
+              delay: index * 0.1, 
+              ease: "easeOut"
+            },
+            viewport: { once: true, margin: "-50px" }
+          });
+        });
+
+        // Smooth scroll animations for navigation
+        const scrollLinks = document.querySelectorAll('.scroll-link');
+        scrollLinks.forEach(link => {
+          link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            const targetSection = document.querySelector(targetId);
+            
+            if (targetSection) {
+              targetSection.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+              });
+            }
+          });
+        });
+
+        // Parallax effect for background elements
+        const parallaxElements = document.querySelectorAll('.absolute');
+        window.addEventListener('scroll', () => {
+          const scrolled = window.pageYOffset;
+          parallaxElements.forEach(element => {
+            const speed = 0.5;
+            const yPos = -(scrolled * speed);
+            element.style.transform = `translateY(${yPos}px)`;
+          });
+        });
+
+        // Floating animation for profile image
+        if (profileImage) {
+          motion(profileImage, {
+            animate: { 
+              y: [0, -10, 0],
+              rotate: [0, 1, 0]
+            },
+            transition: { 
+              duration: 4,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }
+          });
+        }
+
+        console.log('🎨 Framer Motion animations loaded successfully!');
+      } else {
+        console.log('⚠️ Framer Motion not loaded, falling back to CSS animations');
+      }
+    });
   </script>
 </body>
 </html> 
